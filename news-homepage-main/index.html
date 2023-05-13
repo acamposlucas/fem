@@ -22,14 +22,14 @@
 		</style>
 	</head>
 	<body class="w-11/12 mx-auto max-w-7xl">
-		<header class="pt-7 mb-8 flex justify-between relative">
+		<header class="pt-7 mb-8 flex justify-between relative lg:items-center">
 			<div class="h-8 md:h-10 lg:h-12">
 				<img src="assets/images/logo.svg" class="h-full" />
 			</div>
 			<button
 				type="button"
 				id="navButton"
-				class="h-8 w-10 absolute right-0 z-50"
+				class="h-8 w-10 absolute right-0 z-50 lg:hidden"
 				aria-controls="main-navigation">
 				<span class="sr-only">Toggle menu</span>
 				<svg
@@ -65,13 +65,27 @@
 			<nav
 				id="main-navigation"
 				aria-controlledby="navButton"
-				class="hidden bg-white fixed top-0 right-0 w-8/12 h-screen">
-				<ul class="absolute top-36 left-8">
-					<li class=""><a href="#">Home</a></li>
-					<li class="mt-4"><a href="#">New</a></li>
-					<li class="mt-4"><a href="#">Popular</a></li>
-					<li class="mt-4"><a href="#">Trending</a></li>
-					<li class="mt-4"><a href="#">Categories</a></li>
+				class="hidden lg:block lg:static lg:h-auto lg:text-end bg-white fixed top-0 right-0 w-8/12 h-screen">
+				<ul class="absolute top-36 left-8 lg:static">
+					<li
+						class="lg:mt-0 lg:inline-block lg:me-10 hover:text-red-500">
+						<a href="#">Home</a>
+					</li>
+					<li
+						class="mt-4 lg:mt-0 lg:inline-block lg:me-10 hover:text-red-500">
+						<a href="#">New</a>
+					</li>
+					<li
+						class="mt-4 lg:mt-0 lg:inline-block lg:me-10 hover:text-red-500">
+						<a href="#">Popular</a>
+					</li>
+					<li
+						class="mt-4 lg:mt-0 lg:inline-block lg:me-10 hover:text-red-500">
+						<a href="#">Trending</a>
+					</li>
+					<li class="mt-4 lg:mt-0 lg:inline-block hover:text-red-500">
+						<a href="#">Categories</a>
+					</li>
 				</ul>
 			</nav>
 		</header>
@@ -141,7 +155,7 @@
 				</article>
 			</section>
 			<section class="flex flex-wrap gap-4 lg:col-span-12">
-				<article class="flex gap-6 flex-1 mb-8">
+				<article class="flex gap-6 flex-1 mb-8 sm:mb-0">
 					<div class="w-24 flex-initial">
 						<img
 							class="w-full h-full"
@@ -154,15 +168,18 @@
 							aria-hidden="true"
 							>01</span
 						>
-						<h2 class="text-lg font-extrabold">
-							Reviving Retro PCs
-						</h2>
-						<p class="text-slate-400">
-							What happens when old PCs are given modern upgrades?
-						</p>
+						<a href="#" class="hover:text-red-500">
+							<h2 class="text-lg font-extrabold">
+								Reviving Retro PCs
+							</h2>
+							<p class="text-slate-400">
+								What happens when old PCs are given modern
+								upgrades?
+							</p>
+						</a>
 					</div>
 				</article>
-				<article class="flex gap-6 flex-1 mb-8">
+				<article class="flex gap-6 flex-1 mb-8 sm:mb-0">
 					<div class="w-24 flex-initial">
 						<img
 							class="w-full h-full"
@@ -175,19 +192,21 @@
 							aria-hidden="true"
 							>02</span
 						>
-						<h2 class="text-lg font-extrabold">
-							Top 10 Laptops of 2022
-						</h2>
-						<p class="text-slate-400">
-							Our best picks for various needs and budgets.
-						</p>
+						<a href="#" class="hover:text-red-500">
+							<h2 class="text-lg font-extrabold">
+								Top 10 Laptops of 2022
+							</h2>
+							<p class="text-slate-400">
+								Our best picks for various needs and budgets.
+							</p>
+						</a>
 					</div>
 				</article>
 				<article class="flex gap-6 flex-1">
 					<div class="w-24 flex-initial">
 						<img
 							class="w-full h-full"
-							src="assets/images/image-gaming-growth.jpg"
+							src="assets/images/image-top-laptops.jpg"
 							alt="Joystick" />
 					</div>
 					<div class="flex-1">
@@ -196,12 +215,15 @@
 							aria-hidden="true"
 							>03</span
 						>
-						<h2 class="text-lg font-extrabold">
-							The Growth of Gaming
-						</h2>
-						<p class="text-slate-400">
-							How the pandemic has sparked fresh opportunities.
-						</p>
+						<a href="#" class="hover:text-red-500">
+							<h2 class="text-lg font-extrabold">
+								The Growth of Gaming
+							</h2>
+							<p class="text-slate-400">
+								How the pandemic has sparked fresh
+								opportunities.
+							</p>
+						</a>
 					</div>
 				</article>
 			</section>
