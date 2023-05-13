@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./assets/images/favicon-32x32.png" />
+		<title>Frontend Mentor | News homepage</title>
+		<style>
+			@font-face {
+				font-family: "Inter";
+				src: url("assets/fonts/Inter-VariableFont_slnt,wght.ttf");
+			}
+
+			body {
+				font-family: "Inter";
+			}
+		</style>
+	</head>
+	<body class="w-11/12 mx-auto max-w-7xl">
+		<header class="pt-7 mb-8 flex justify-between relative">
+			<div class="h-8 md:h-10 lg:h-12">
+				<img src="assets/images/logo.svg" class="h-full" />
+			</div>
+			<button
+				type="button"
+				id="navButton"
+				class="h-8 w-10 absolute right-0 z-50"
+				aria-controls="main-navigation">
+				<span class="sr-only">Toggle menu</span>
+				<svg
+					id="hamburguerIcon"
+					class=""
+					aria-hidden="true"
+					width="100%"
+					height="17"
+					xmlns="http://www.w3.org/2000/svg">
+					<g fill="#00001A" fill-rule="evenodd">
+						<path d="M0 0h40v3H0zM0 7h40v3H0zM0 14h40v3H0z" />
+						<path d="M0 0h40v3H0z" />
+					</g>
+				</svg>
+				<svg
+					id="closeIcon"
+					class="hidden"
+					aria-hidden="true"
+					width="32"
+					height="31"
+					xmlns="http://www.w3.org/2000/svg">
+					<g fill="#00001A" fill-rule="evenodd">
+						<path
+							d="m2.919.297 28.284 28.284-2.122 2.122L.797 2.419z" />
+						<path
+							d="M.797 28.581 29.081.297l2.122 2.122L2.919 30.703z" />
+					</g>
+				</svg>
+			</button>
+			<div
+				id="overlay"
+				class="hidden fixed top-0 right-0 w-full h-screen bg-zinc-900 opacity-50"></div>
+			<nav
+				id="main-navigation"
+				aria-controlledby="navButton"
+				class="hidden bg-white fixed top-0 right-0 w-8/12 h-screen">
+				<ul class="absolute top-36 left-8">
+					<li class=""><a href="#">Home</a></li>
+					<li class="mt-4"><a href="#">New</a></li>
+					<li class="mt-4"><a href="#">Popular</a></li>
+					<li class="mt-4"><a href="#">Trending</a></li>
+					<li class="mt-4"><a href="#">Categories</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main class="grid gap-12 grid-cols-1 lg:grid-cols-12 mb-16">
+			<article class="lg:col-span-8">
+				<picture>
+					<source
+						media="(min-width: 1120px)"
+						srcset="assets/images/image-web-3-desktop.jpg" />
+					<img
+						class="max-h-96 w-full"
+						src="assets/images/image-web-3-mobile.jpg"
+						alt="" />
+				</picture>
+				<h2 class="text-4xl font-bold mt-6">
+					The Bright Future of Web 3.0?
+				</h2>
+				<p class="text-slate-500 mt-4 mb-6">
+					We dive into the next evolution of the web that claims to
+					put the power of the platforms back into the hands of the
+					people. But is it really fulfilling its promise?
+				</p>
+				<a
+					href="#"
+					class="uppercase text-sm font-bold tracking-widest text-white bg-red-500 py-3 px-8 hover:bg-slate-800"
+					>Read more</a
+				>
+			</article>
+			<section class="lg:col-span-4 px-5 py-6 bg-black">
+				<h1 class="text-yellow-600 text-3xl font-bold mb-9">New</h1>
+				<article class="group mb-8">
+					<a href="#">
+						<h2
+							class="text-white font-extrabold text-xl pb-2 group-hover:text-yellow-600">
+							Hydrogen VS Eletric Cars
+						</h2>
+						<p class="text-slate-400">
+							Will hydrogen-fueled cars ever catch up to EVs?
+						</p>
+					</a>
+				</article>
+				<article
+					class="group mb-8 before:mb-4 before:block before:h-[1px] before:w-full before:bg-slate-400">
+					<a href="#">
+						<h2
+							class="text-white font-extrabold text-xl pb-2 group-hover:text-yellow-600">
+							The Downsides of AI Artistry
+						</h2>
+						<p class="text-slate-400">
+							What are the possible adverse effects of on-demand
+							AI image generation?
+						</p>
+					</a>
+				</article>
+				<article
+					class="group before:mb-4 before:block before:h-[1px] before:w-full before:bg-slate-400">
+					<a href="#">
+						<h2
+							class="text-white font-extrabold text-xl pb-2 group-hover:text-yellow-600">
+							Is VC Funding Drying Up?
+						</h2>
+						<p class="text-slate-400">
+							Private funding by VC firms is down 50% YOY. We take
+							a look at what that means.
+						</p>
+					</a>
+				</article>
+			</section>
+			<section class="flex flex-wrap gap-4 lg:col-span-12">
+				<article class="flex gap-6 flex-1 mb-8">
+					<div class="w-24 flex-initial">
+						<img
+							class="w-full h-full"
+							src="assets/images/image-retro-pcs.jpg"
+							alt="Old computer" />
+					</div>
+					<div class="flex-1">
+						<span
+							class="block mb-2 text-slate-400 font-bold text-3xl"
+							aria-hidden="true"
+							>01</span
+						>
+						<h2 class="text-lg font-extrabold">
+							Reviving Retro PCs
+						</h2>
+						<p class="text-slate-400">
+							What happens when old PCs are given modern upgrades?
+						</p>
+					</div>
+				</article>
+				<article class="flex gap-6 flex-1 mb-8">
+					<div class="w-24 flex-initial">
+						<img
+							class="w-full h-full"
+							src="assets/images/image-top-laptops.jpg"
+							alt="Laptop keyboard" />
+					</div>
+					<div class="flex-1">
+						<span
+							class="block mb-2 text-slate-400 font-bold text-3xl"
+							aria-hidden="true"
+							>02</span
+						>
+						<h2 class="text-lg font-extrabold">
+							Top 10 Laptops of 2022
+						</h2>
+						<p class="text-slate-400">
+							Our best picks for various needs and budgets.
+						</p>
+					</div>
+				</article>
+				<article class="flex gap-6 flex-1">
+					<div class="w-24 flex-initial">
+						<img
+							class="w-full h-full"
+							src="assets/images/image-gaming-growth.jpg"
+							alt="Joystick" />
+					</div>
+					<div class="flex-1">
+						<span
+							class="block mb-2 text-slate-400 font-bold text-3xl"
+							aria-hidden="true"
+							>03</span
+						>
+						<h2 class="text-lg font-extrabold">
+							The Growth of Gaming
+						</h2>
+						<p class="text-slate-400">
+							How the pandemic has sparked fresh opportunities.
+						</p>
+					</div>
+				</article>
+			</section>
+		</main>
+		<script defer>
+			const navButton = document.getElementById("navButton");
+			const nav = document.getElementById("main-navigation");
+			const overlay = document.getElementById("overlay");
+			const hamburguerIcon = document.getElementById("hamburguerIcon");
+			const closeIcon = document.getElementById("closeIcon");
+
+			let showNav = false;
+			navButton.addEventListener("click", () => {
+				overlay.classList.toggle("hidden");
+				nav.toggleAttribute("aria-hidden");
+				nav.classList.toggle("hidden");
+				hamburguerIcon.classList.toggle("hidden");
+				closeIcon.classList.toggle("hidden");
+			});
+		</script>
+	</body>
+</html>
