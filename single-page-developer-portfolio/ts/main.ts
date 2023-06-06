@@ -1,11 +1,4 @@
-interface FormElements extends HTMLFormControlsCollection {
-  name: HTMLInputElement;
-  email: HTMLInputElement;
-  message: HTMLTextAreaElement;
-}
-
-const form: HTMLFormElement = document.forms[0];
-const inputs = form.elements as FormElements;
+const form: HTMLFormElement = document.forms["sendMessageForm"];
 
 form.onsubmit = (e) => {
   e.preventDefault();
