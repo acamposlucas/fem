@@ -12,7 +12,11 @@ export default {
           darkGrey: "#242424",
           green: "#4EE1A0",
           grey: "#D9D9D9",
+          red: "#FF6F5B",
         },
+      },
+      flex: {
+        2: "2 2 0%",
       },
     },
   },
