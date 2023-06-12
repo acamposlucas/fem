@@ -2,22 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="images/icon-frontend-mentor.svg"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Vite + TS</title>
+    <title>Single Page Developer Portfolio</title>
   </head>
   <body class="bg-custom-black font-body">
     <div class="mx-auto w-11/12 max-w-6xl">
       <header
-        class="mb-12 flex max-w-6xl flex-col md:flex-row md:justify-between"
+        class="relative flex max-w-6xl flex-col md:flex-row md:justify-between"
       >
         <h1 class="mb-4 pt-5 text-center font-bold text-white text-2xl">
           adamkeyes
         </h1>
-        <nav class="mt-5 px-5">
+        <nav class="mt-5 h-72 px-5 md:h-auto">
           <ul class="mx-auto w-fit">
-            <li class="me-6 inline-block">
+            <li class="me-2 inline-block">
               <a href="#">
                 <svg
                   aria-hidden="true"
@@ -34,7 +38,7 @@
                 <span class="sr-only">Github</span>
               </a>
             </li>
-            <li class="me-6 inline-block">
+            <li class="me-2 inline-block">
               <a href="#">
                 <svg
                   aria-hidden="true"
@@ -49,7 +53,7 @@
                 ><span class="sr-only">Frontendmentor</span>
               </a>
             </li>
-            <li class="me-6 inline-block">
+            <li class="me-2 inline-block">
               <a href="#">
                 <svg
                   aria-hidden="true"
@@ -82,20 +86,17 @@
             </li>
           </ul>
         </nav>
+        <div
+          aria-hidden="true"
+          class="absolute left-1/2 -z-20 h-96 w-48 flex-1 -translate-x-1/2 bg-[url('images/image-profile-mobile.webp')] bg-cover bg-center bg-no-repeat md:left-auto md:right-0 md:-translate-x-0 md:bg-[bottom]"
+        ></div>
       </header>
       <section
         role="presentation"
-        class="mb-20 mt-10 max-w-6xl text-center md:flex md:flex-row-reverse md:text-left lg:justify-between"
+        class="mb-20 mt-10 max-w-6xl text-center md:text-left"
       >
-        <div class="mx-auto h-96 flex-1 lg:mx-0 lg:max-w-md">
-          <img
-            class="h-full w-full object-cover object-bottom"
-            src="assets/images/image-profile-mobile.webp"
-            alt=""
-          />
-        </div>
-        <div class="flex-2 lg:max-w-md">
-          <p class="mb-6 font-bold text-white text-5xl">
+        <div class="flex-2 md:max-w-xl">
+          <p class="mb-6 font-bold text-white text-5xl lg:text-7xl">
             Nice to meet you! I'm
             <strong class="border-b-4 border-custom-green">Adam Keyes</strong>.
           </p>
@@ -167,11 +168,11 @@
               >
                 <picture>
                   <source
-                    srcset="public/assets/images/thumbnail-project-1-large.webp"
+                    srcset="images/thumbnail-project-1-large.webp"
                     media="(min-width: 768px)"
                   />
                   <img
-                    src="public/assets/images/thumbnail-project-1-small.webp"
+                    src="images/thumbnail-project-1-small.webp"
                     alt=""
                     srcset=""
                   />
@@ -226,11 +227,11 @@
               >
                 <picture>
                   <source
-                    srcset="public/assets/images/thumbnail-project-2-large.webp"
+                    srcset="images/thumbnail-project-2-large.webp"
                     media="(min-width: 768px)"
                   />
                   <img
-                    src="public/assets/images/thumbnail-project-2-small.webp"
+                    src="images/thumbnail-project-2-small.webp"
                     alt=""
                     srcset=""
                   />
@@ -285,11 +286,11 @@
               >
                 <picture>
                   <source
-                    srcset="public/assets/images/thumbnail-project-3-large.webp"
+                    srcset="images/thumbnail-project-3-large.webp"
                     media="(min-width: 768px)"
                   />
                   <img
-                    src="public/assets/images/thumbnail-project-3-small.webp"
+                    src="images/thumbnail-project-3-small.webp"
                     alt=""
                     srcset=""
                   />
@@ -349,11 +350,11 @@
               >
                 <picture>
                   <source
-                    srcset="public/assets/images/thumbnail-project-4-large.webp"
+                    srcset="images/thumbnail-project-4-large.webp"
                     media="(min-width: 768px)"
                   />
                   <img
-                    src="public/assets/images/thumbnail-project-4-small.webp"
+                    src="images/thumbnail-project-4-small.webp"
                     alt=""
                     srcset=""
                   />
@@ -413,11 +414,11 @@
               >
                 <picture>
                   <source
-                    srcset="public/assets/images/thumbnail-project-5-large.webp"
+                    srcset="images/thumbnail-project-5-large.webp"
                     media="(min-width: 768px)"
                   />
                   <img
-                    src="public/assets/images/thumbnail-project-5-small.webp"
+                    src="images/thumbnail-project-5-small.webp"
                     alt=""
                     srcset=""
                   />
@@ -477,11 +478,11 @@
               >
                 <picture>
                   <source
-                    srcset="public/assets/images/thumbnail-project-6-large.webp"
+                    srcset="images/thumbnail-project-6-large.webp"
                     media="(min-width: 768px)"
                   />
                   <img
-                    src="public/assets/images/thumbnail-project-6-small.webp"
+                    src="images/thumbnail-project-6-small.webp"
                     alt=""
                     srcset=""
                   />
@@ -596,7 +597,7 @@
             />
             <span
               role="alert"
-              class="invisible relative block text-right text-custom-red after:absolute after:-top-10 after:right-6 after:block after:h-6 after:w-6 after:bg-[url('assets/images/exclamation-mark.svg')] after:bg-cover after:bg-no-repeat peer-invalid:text-custom-red peer-[:not(:placeholder-shown,:focus)&:invalid]:!visible"
+              class="invisible relative block text-right text-custom-red after:absolute after:-top-10 after:right-6 after:block after:h-6 after:w-6 after:bg-[url('images/exclamation-mark.svg')] after:bg-cover after:bg-no-repeat peer-invalid:text-custom-red peer-[:not(:placeholder-shown,:focus)&:invalid]:!visible"
               >Sorry, invalid format here</span
             >
           </div>

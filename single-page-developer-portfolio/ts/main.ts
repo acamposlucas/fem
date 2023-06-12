@@ -1,4 +1,4 @@
-const form: HTMLFormElement = document.forms["sendMessageForm"];
+const form: HTMLFormElement = document.forms[0];
 
 form.onsubmit = (e) => {
   e.preventDefault();
