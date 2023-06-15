@@ -1,0 +1,49 @@
+@import "./normalize.min.css";
+
+:root {
+	--clr-white: hsl(0, 0, 100%);
+	--clr-neutral-800: hsl(240, 67%, 8%);
+	--clr-neutral-600: hsl(240, 17%, 26%);
+	--clr-neutral-400: hsl(240, 6%, 54%);
+	--clr-blue-700: hsl(222, 87%, 56%);
+	--clr-blue-300: hsl(194, 48%, 49%);
+	--clr-yellow-400: hsl(33, 82%, 61%);
+	--clr-purple-400: hsl(263, 67%, 51%);
+	--clr-orange-500: hsl(10, 63%, 51%);
+	--clr-orange-300: hsl(17, 73%, 46%);
+	--clr-orange-600: hsl(2, 68%, 53%);
+	--clr-green-200: hsl(169, 73%, 44%);
+
+	--ff-body: "Antonio", sans-serif;
+	--ff-title: "Spartan", sans-serif;
+
+	--fs-xl: 5rem;
+	--fs-lg: 2.5rem;
+	--fs-base: 1rem;
+	--fs-sm: 0.75rem;
+	--fs-xxs: 0.675rem;
+
+	--fw-bold: 700;
+	--fw-medium: 500;
+	--fw-regular: 400;
+
+	--tracking-tighter: -0.05em;
+	--tracking-tight: -0.025em;
+	--tracking-normal: 0em;
+	--tracking-wide: 0.025em;
+	--tracking-wider: 0.05em;
+	--tracking-widest: 0.1em;
+
+	--leading-none: 1;
+	--leading-tight: 1.25;
+	--leading-snug: 1.375;
+	--leading-normal: 1.5;
+	--leading-relaxed: 1.625;
+	--leading-loose: 2;
+}
+
+.container {
+	max-width: 1440px;
+	margin-inline: auto;
+	width: 90%;
+}
