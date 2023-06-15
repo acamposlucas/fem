@@ -1,7 +1,8 @@
 @import "./normalize.min.css";
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=League+Spartan:wght@400;700&display=swap");
 
 :root {
-	--clr-white: hsl(0, 0, 100%);
+	--clr-white: #fff;
 	--clr-neutral-800: hsl(240, 67%, 8%);
 	--clr-neutral-600: hsl(240, 17%, 26%);
 	--clr-neutral-400: hsl(240, 6%, 54%);
@@ -19,6 +20,7 @@
 
 	--fs-xl: 5rem;
 	--fs-lg: 2.5rem;
+	--fs-md: 1.75rem;
 	--fs-base: 1rem;
 	--fs-sm: 0.75rem;
 	--fs-xxs: 0.675rem;
@@ -42,8 +44,64 @@
 	--leading-loose: 2;
 }
 
+body {
+	background-color: var(--clr-neutral-800);
+	background-image: url("../assets/background-stars.svg");
+}
+
+/** COMPONENTS */
+
+header {
+	margin-block: 1rem;
+}
+
+header::after {
+	background-color: var(--clr-white);
+	content: "";
+	display: block;
+	margin-block-start: 1rem;
+	height: 1px;
+	opacity: 0.2;
+	width: 100%;
+}
+
+.main__header {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+.main__header h1 {
+	color: var(--clr-white);
+	font-family: var(--ff-body);
+	font-size: var(--fs-md);
+	margin-block: 0;
+	line-height: var(--leading-normal);
+	text-transform: uppercase;
+	letter-spacing: var(--tracking-tighter);
+}
+
+.main__header button {
+	border: 0;
+	background-color: transparent;
+}
+
+/** UTILITY CLASSES */
+
 .container {
 	max-width: 1440px;
 	margin-inline: auto;
 	width: 90%;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
 }
