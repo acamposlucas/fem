@@ -1,3 +1,5 @@
+import Menu from "./Menu";
+
 function Header() {
 	return (
 		<header>
@@ -14,6 +16,9 @@ function Header() {
 						</g>
 					</svg>
 				</button>
+				<div className="header__menu__container">
+					<Menu />
+				</div>
 			</div>
 		</header>
 	);
