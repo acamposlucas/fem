@@ -54,7 +54,7 @@ body {
 /** COMPONENTS */
 
 header {
-	margin-block: 1rem;
+	/* margin-block: 1rem; */
 }
 
 @media (min-width: 72rem) {
@@ -133,9 +133,14 @@ header::after {
 }
 
 .header__menu__container {
+	background-color: var(--clr-neutral-800);
 	position: absolute;
 	top: 7rem;
 	width: 100%;
+}
+
+.header__menu__container[data-visible="false"] {
+	right: 110%;
 }
 
 @media (min-width: 48rem) {

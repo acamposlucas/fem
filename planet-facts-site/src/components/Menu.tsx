@@ -1,7 +1,6 @@
 import PLANET_LIST from "../../data.json";
 
 function Menu() {
-	console.log(PLANET_LIST);
 	return (
 		<nav className="menu">
 			<ul>
