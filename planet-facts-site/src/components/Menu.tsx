@@ -1,4 +1,5 @@
 import PLANET_LIST from "../../data.json";
+import { Link } from "react-router-dom";
 
 function Menu() {
 	return (
@@ -7,7 +8,7 @@ function Menu() {
 				{PLANET_LIST.map(({ name }) => {
 					return (
 						<li key={name}>
-							<a href="#">
+							<Link to={name}>
 								{name}{" "}
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +21,7 @@ function Menu() {
 										d="M1 0l4 4-4 4"
 									/>
 								</svg>
-							</a>
+							</Link>
 						</li>
 					);
 				})}

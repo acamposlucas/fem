@@ -1,8 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Menu from "./Menu";
 
 function Header() {
 	const [showMenu, setShowMenu] = useState(false);
+
+	let location = useLocation();
+
+	useEffect(() => {
+		setShowMenu(false);
+	}, [location]);
 
 	function handleOpenMenu() {
 		setShowMenu((state) => !state);
