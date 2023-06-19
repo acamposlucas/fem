@@ -17,8 +17,8 @@
 	--clr-orange-600: hsl(2, 68%, 53%);
 	--clr-green-200: hsl(169, 73%, 44%);
 
-	--ff-body: "Antonio", sans-serif;
-	--ff-title: "Spartan", sans-serif;
+	--ff-title: "Antonio", sans-serif;
+	--ff-body: "League Spartan", sans-serif;
 
 	--fs-xl: 5rem;
 	--fs-lg: 2.5rem;
@@ -46,9 +46,33 @@
 	--leading-loose: 2;
 }
 
+html,
+body {
+	font-family: var(--ff-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--ff-title);
+}
+
 body {
 	background-color: var(--clr-neutral-800);
 	background-image: url("../assets/background-stars.svg");
+}
+
+a,
+button {
+	font-family: var(--ff-title);
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
 }
 
 /** COMPONENTS */
@@ -99,7 +123,7 @@ header::after {
 .main__header h1 {
 	display: block;
 	color: var(--clr-white);
-	font-family: var(--ff-body);
+	font-family: var(--ff-title);
 	font-size: var(--fs-md);
 	margin-block: 0;
 	line-height: var(--leading-tight);
@@ -287,6 +311,123 @@ header::after {
 		display: inline-block;
 		margin-inline-start: auto;
 	}
+}
+
+.planet__grid {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+}
+
+.planet__menu {
+	grid-column: span 12;
+}
+
+.planet__menu ul {
+	list-style: none;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-block-start: 1.25rem;
+	padding-block-end: 1.5rem;
+	padding-inline: 0;
+	margin: 0;
+	width: 90%;
+	margin-inline: auto;
+}
+
+.planet__menu::after {
+	background-color: var(--clr-white);
+	content: "";
+	display: block;
+	height: 1px;
+	opacity: 0.2;
+	width: 100%;
+}
+
+.planet__menu ul li a {
+	border-block-end: 4px solid transparent;
+	color: var(--clr-white);
+	text-transform: uppercase;
+	letter-spacing: 0.1195rem;
+	font-weight: var(--fw-bold);
+	font-size: 0.625rem;
+	padding-block-end: 1.25rem;
+}
+
+.planet__menu ul li a:not(.active) {
+	opacity: 0.5;
+}
+
+.planet__menu ul li a:not(.active):hover {
+	border-color: white;
+	opacity: 1;
+}
+
+.planet__img {
+	grid-column: span 12;
+}
+
+.planet__img {
+	margin-block: 5rem;
+}
+
+.planet__img img {
+	width: 60%;
+	height: 100%;
+	display: block;
+	margin-inline: auto;
+}
+
+.planet__content {
+	grid-column: span 12;
+}
+
+.planet__content h1 {
+	color: var(--clr-white);
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.planet__content p {
+	color: var(--clr-white);
+	text-align: center;
+	font-size: var(--fs-xxs);
+	margin-block-end: 1rem;
+	line-height: var(--leading-loose);
+}
+
+.planet__content .source {
+	color: var(--clr-white);
+	opacity: 0.75;
+}
+
+.planet__details {
+	grid-column: span 12;
+}
+
+.planet__details p {
+	align-items: center;
+	border: 1px solid #ffffff2d;
+	color: var(--clr-white);
+	display: flex;
+	justify-content: space-between;
+	padding-block: 0.5rem;
+	padding-inline: 1rem;
+	font-size: var(--fs-sm);
+	font-weight: var(--fw-bold);
+	text-transform: uppercase;
+	letter-spacing: var(--tracking-wide);
+	
+}
+
+.planet__details p span {
+	opacity: 0.5;
+}
+
+.planet__details strong {
+	font-size: var(--fs-md);
+	font-family: var(--ff-title);
+	opacity: 1 !important;
 }
 
 /** UTILITY CLASSES */
