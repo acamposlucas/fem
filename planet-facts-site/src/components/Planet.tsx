@@ -3,11 +3,13 @@ import PLANET_LIST from "../../data.json";
 import { useState } from "react";
 
 type SubMenu = "overview" | "structure" | "surface";
+type Images = "planet" | "internal" | "geology";
 
 function Planet() {
 	const { pathname } = useLocation();
 	let planet: Planet = {} as Planet;
 	const [selectedSubMenu, setSelectedSubMenu] = useState<SubMenu>("overview");
+	const [selectedImage, setSelectedImage] = useState<Images>("planet");
 
 	const handleSelectedSubMenu = (
 		e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
@@ -26,6 +28,15 @@ function Planet() {
 				return planet.structure;
 			case "surface":
 				return planet.geology;
+		}
+	};
+
+	const loadPlanetImage = () => {
+		switch (selectedSubMenu) {
+			case "structure":
+				return planet.images.internal;
+			default:
+				return planet.images.planet;
 		}
 	};
 
@@ -48,7 +59,6 @@ function Planet() {
 										? "active"
 										: ""
 								}
-								href="#"
 								onClick={(e) => handleSelectedSubMenu(e)}>
 								Overview
 							</a>
@@ -60,7 +70,6 @@ function Planet() {
 										? "active"
 										: ""
 								}
-								href="#"
 								onClick={handleSelectedSubMenu}>
 								Structure
 							</a>
@@ -72,7 +81,6 @@ function Planet() {
 										? "active"
 										: ""
 								}
-								href="#"
 								onClick={handleSelectedSubMenu}>
 								Surface
 							</a>
@@ -80,7 +88,12 @@ function Planet() {
 					</ul>
 				</nav>
 				<div className="planet__img">
-					<img src={planet.images.planet} alt={planet.name} />
+					<img src={loadPlanetImage()} alt={planet.name} />
+					{selectedSubMenu === "surface" ? (
+						<div className="planet__img__geology">
+							<img src={planet.images.geology} />
+						</div>
+					) : null}
 				</div>
 				<div className="planet__content">
 					<h1 className="">{planet.name}</h1>

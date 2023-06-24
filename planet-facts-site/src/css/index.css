@@ -410,6 +410,7 @@ header::after {
 .planet__menu ul li a {
 	border-block-end: 4px solid transparent;
 	color: var(--clr-white);
+	cursor: pointer;
 	text-transform: uppercase;
 	letter-spacing: 0.1195rem;
 	font-weight: var(--fw-bold);
@@ -451,9 +452,27 @@ header::after {
 	grid-column: span 12;
 	margin-block: 5rem;
 
+	position: relative;
+
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.planet__img__geology {
+	position: absolute;
+	width: 50%;
+	max-width: 12.5rem;
+	max-height: 10rem;
+
+	bottom: -5rem;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.planet__img__geology img {
+	display: block;
+	margin-inline: auto;
 }
 
 @media (min-width: 72rem) {
