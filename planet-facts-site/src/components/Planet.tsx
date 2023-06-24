@@ -1,15 +1,17 @@
 import { useLocation } from "react-router-dom";
 import PLANET_LIST from "../../data.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type SubMenu = "overview" | "internal structure" | "surface geology";
-type Images = "planet" | "internal" | "geology";
 
 function Planet() {
 	const { pathname } = useLocation();
 	let planet: Planet = {} as Planet;
 	const [selectedSubMenu, setSelectedSubMenu] = useState<SubMenu>("overview");
-	const [selectedImage, setSelectedImage] = useState<Images>("planet");
+
+	useEffect(() => {
+		setSelectedSubMenu("overview");
+	}, [pathname]);
 
 	const handleSelectedSubMenu = (
 		e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
@@ -56,7 +58,7 @@ function Planet() {
 							<a
 								className={
 									selectedSubMenu === "overview"
-										? "active"
+										? `active bg-${planet.name}`
 										: ""
 								}
 								onClick={(e) => handleSelectedSubMenu(e)}>
@@ -67,7 +69,7 @@ function Planet() {
 							<a
 								className={
 									selectedSubMenu === "internal structure"
-										? "active"
+										? `active bg-${planet.name}`
 										: ""
 								}
 								onClick={handleSelectedSubMenu}>
@@ -78,7 +80,7 @@ function Planet() {
 							<a
 								className={
 									selectedSubMenu === "surface geology"
-										? "active"
+										? `active bg-${planet.name}`
 										: ""
 								}
 								onClick={handleSelectedSubMenu}>
@@ -115,13 +117,13 @@ function Planet() {
 						<strong>{planet.revolution}</strong>
 					</p>
 					<p>
-						<span>Radius</span> <strong>{planet.revolution}</strong>
+						<span>Radius</span> <strong>{planet.radius}</strong>
 					</p>
 					<p>
 						<span>
 							Average <abbr title="temperature">temp.</abbr>
 						</span>{" "}
-						<strong>{planet.revolution}</strong>
+						<strong>{planet.temperature}</strong>
 					</p>
 				</div>
 			</div>

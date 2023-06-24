@@ -302,6 +302,7 @@ header::after {
 	}
 }
 
+
 .menu ul li a {
 	align-items: center;
 	justify-content: space-between;
@@ -439,7 +440,7 @@ header::after {
 	}
 
 	.planet__menu ul li a.active {
-		background-color: var(--clr-blue-300);
+		/* background-color: var(--clr-blue-300); */
 	}
 
 	.planet__menu ul li a:before {
@@ -453,10 +454,12 @@ header::after {
 	opacity: 0.5;
 }
 
-.planet__menu ul li a:not(.active):hover {
-	border-color: white;
-	background-color: var(--clr-neutral-600);
-	opacity: 1;
+@media (min-width: 48rem) {
+	.planet__menu ul li a:not(.active):hover {
+		border-color: white;
+		background-color: var(--clr-neutral-600);
+		opacity: 1;
+	}
 }
 
 .planet__img {
@@ -634,6 +637,40 @@ header::after {
 }
 
 /** UTILITY CLASSES */
+
+@media (min-width: 48rem) {
+	.bg-Mercury {
+		background-color: var(--clr-blue-300);
+	}
+
+	.bg-Venus {
+		background-color: var(--clr-yellow-400);
+	}
+
+	.bg-Earth {
+		background-color: var(--clr-purple-400);
+	}
+
+	.bg-Mars {
+		background-color: var(--clr-orange-500);
+	}
+
+	.bg-Jupiter {
+		background-color: var(--clr-orange-600);
+	}
+
+	.bg-Saturn {
+		background-color: var(--clr-orange-500);
+	}
+
+	.bg-Uranus {
+		background-color: var(--clr-green-200);
+	}
+
+	.bg-Neptune {
+		background-color: var(--clr-blue-700);
+	}
+}
 
 .container {
 	max-width: 1440px;
