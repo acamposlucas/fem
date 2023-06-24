@@ -69,6 +69,15 @@ body {
 	background-image: url("../assets/background-stars.svg");
 }
 
+main {
+	display: flex;
+	min-height: calc(100vh - 5rem);
+}
+
+main > * {
+	flex: 0 1 1;
+}
+
 a,
 button {
 	font-family: var(--ff-title);
@@ -219,7 +228,7 @@ header::after {
 
 @media (min-width: 48rem) {
 	.menu ul li {
-		font-size: var(--fs-sm);
+		font-size: var(--fs-base);
 		padding-block-end: 0;
 	}
 
@@ -340,6 +349,7 @@ header::after {
 @media (min-width: 72rem) {
 	.planet__grid {
 		row-gap: 2rem;
+		margin-block-start: 5rem;
 	}
 }
 
@@ -412,7 +422,7 @@ header::after {
 	color: var(--clr-white);
 	cursor: pointer;
 	text-transform: uppercase;
-	letter-spacing: 0.1195rem;
+	letter-spacing: 0.1875rem;
 	font-weight: var(--fw-bold);
 	font-size: 0.625rem;
 	padding-block-end: 1.25rem;
@@ -445,12 +455,13 @@ header::after {
 
 .planet__menu ul li a:not(.active):hover {
 	border-color: white;
+	background-color: var(--clr-neutral-600);
 	opacity: 1;
 }
 
 .planet__img {
 	grid-column: span 12;
-	margin-block: 5rem;
+	margin-block-end: 5rem;
 
 	position: relative;
 
@@ -470,9 +481,21 @@ header::after {
 	transform: translateX(-50%);
 }
 
+@media (min-width: 72rem) {
+	.planet__img__geology {
+		bottom: 0;
+	}
+}
+
 .planet__img__geology img {
 	display: block;
 	margin-inline: auto;
+}
+
+@media (min-width: 48rem) {
+	.planet__img {
+		margin-block: 4rem;
+	}
 }
 
 @media (min-width: 72rem) {
@@ -534,7 +557,7 @@ header::after {
 @media (min-width: 48rem) {
 	.planet__content p {
 		text-align: left;
-		font-size: var(--fs-sm);
+		font-size: var(--fs-base);
 		line-height: var(--leading-relaxed);
 	}
 }
@@ -553,6 +576,9 @@ header::after {
 
 @media (min-width: 48rem) {
 	.planet__details {
+		align-items: center;
+		place-self: start;
+
 		width: 100%;
 	}
 }
@@ -564,7 +590,7 @@ header::after {
 	}
 
 	.planet__details > * {
-		flex: 1;
+		flex: 1 0 0;
 	}
 }
 
@@ -576,6 +602,7 @@ header::after {
 	justify-content: space-between;
 	padding-block: 0.5rem;
 	padding-inline: 1rem;
+	gap: 1rem;
 	font-size: var(--fs-sm);
 	font-weight: var(--fw-bold);
 	text-transform: uppercase;
@@ -596,13 +623,13 @@ header::after {
 }
 
 .planet__details strong {
-	font-size: var(--fs-md);
+	font-size: var(--fs-base);
 	font-family: var(--ff-title);
 	opacity: 1 !important;
 }
 @media (min-width: 72rem) {
 	.planet__details strong {
-		font-size: var(--fs-lg);
+		font-size: var(--fs-md);
 	}
 }
 

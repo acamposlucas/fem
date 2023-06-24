@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import PLANET_LIST from "../../data.json";
 import { useState } from "react";
 
-type SubMenu = "overview" | "structure" | "surface";
+type SubMenu = "overview" | "internal structure" | "surface geology";
 type Images = "planet" | "internal" | "geology";
 
 function Planet() {
@@ -24,16 +24,16 @@ function Planet() {
 		switch (selectedSubMenu) {
 			case "overview":
 				return planet.overview;
-			case "structure":
+			case "internal structure":
 				return planet.structure;
-			case "surface":
+			case "surface geology":
 				return planet.geology;
 		}
 	};
 
 	const loadPlanetImage = () => {
 		switch (selectedSubMenu) {
-			case "structure":
+			case "internal structure":
 				return planet.images.internal;
 			default:
 				return planet.images.planet;
@@ -66,30 +66,30 @@ function Planet() {
 						<li>
 							<a
 								className={
-									selectedSubMenu === "structure"
+									selectedSubMenu === "internal structure"
 										? "active"
 										: ""
 								}
 								onClick={handleSelectedSubMenu}>
-								Structure
+								Internal Structure
 							</a>
 						</li>
 						<li>
 							<a
 								className={
-									selectedSubMenu === "surface"
+									selectedSubMenu === "surface geology"
 										? "active"
 										: ""
 								}
 								onClick={handleSelectedSubMenu}>
-								Surface
+								Surface Geology
 							</a>
 						</li>
 					</ul>
 				</nav>
 				<div className="planet__img">
 					<img src={loadPlanetImage()} alt={planet.name} />
-					{selectedSubMenu === "surface" ? (
+					{selectedSubMenu === "surface geology" ? (
 						<div className="planet__img__geology">
 							<img src={planet.images.geology} />
 						</div>
