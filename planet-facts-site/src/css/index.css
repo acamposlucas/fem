@@ -450,25 +450,27 @@ header::after {
 .planet__img {
 	grid-column: span 12;
 	margin-block: 5rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 @media (min-width: 72rem) {
 	.planet__img {
-		grid-column: span 7;
+		grid-column: span 6;
 		grid-row: span 2;
 	}
 }
 
 .planet__img img {
-	width: 30%;
-	height: 100%;
-	display: block;
-	margin-inline: auto;
+	width: 50%;
+	max-width: 18.125rem;
+	max-height: 18.125rem;
 }
 
 .planet__content {
 	grid-column: span 12;
-
 	max-width: 1440px;
 	margin-inline: auto;
 	width: 90%;
