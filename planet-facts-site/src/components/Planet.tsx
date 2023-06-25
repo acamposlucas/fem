@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import PLANET_LIST from "../../data.json";
 import { useEffect, useState } from "react";
 
-type SubMenu = "overview" | "internal structure" | "surface geology";
+type SubMenu = "overview" | "structure" | "geology";
 
 function Planet() {
 	const { pathname } = useLocation();
@@ -26,16 +26,16 @@ function Planet() {
 		switch (selectedSubMenu) {
 			case "overview":
 				return planet.overview;
-			case "internal structure":
+			case "structure":
 				return planet.structure;
-			case "surface geology":
+			case "geology":
 				return planet.geology;
 		}
 	};
 
 	const loadPlanetImage = () => {
 		switch (selectedSubMenu) {
-			case "internal structure":
+			case "structure":
 				return planet.images.internal;
 			default:
 				return planet.images.planet;
@@ -68,30 +68,30 @@ function Planet() {
 						<li>
 							<a
 								className={
-									selectedSubMenu === "internal structure"
+									selectedSubMenu === "structure"
 										? `active bg-${planet.name}`
 										: ""
 								}
 								onClick={handleSelectedSubMenu}>
-								Internal Structure
+								Structure
 							</a>
 						</li>
 						<li>
 							<a
 								className={
-									selectedSubMenu === "surface geology"
+									selectedSubMenu === "structure"
 										? `active bg-${planet.name}`
 										: ""
 								}
 								onClick={handleSelectedSubMenu}>
-								Surface Geology
+								Surface
 							</a>
 						</li>
 					</ul>
 				</nav>
 				<div className="planet__img">
 					<img src={loadPlanetImage()} alt={planet.name} />
-					{selectedSubMenu === "surface geology" ? (
+					{selectedSubMenu === "geology" ? (
 						<div className="planet__img__geology">
 							<img src={planet.images.geology} />
 						</div>
