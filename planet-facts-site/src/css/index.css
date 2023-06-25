@@ -91,10 +91,10 @@ a {
 /** COMPONENTS */
 
 header {
-	/* margin-block: 1rem; */
+	margin-block: 1rem;
 }
 
-@media (min-width: 72rem) {
+@media (min-width: 48rem) {
 	header {
 		margin-block: 0;
 	}
@@ -171,13 +171,22 @@ header::after {
 
 .header__menu__container {
 	background-color: var(--clr-neutral-800);
-	position: absolute;
+	position: fixed;
+	left: 0;
 	top: 7rem;
-	width: 100%;
+
+	z-index: 100;
 }
 
-.header__menu__container[data-visible="false"] {
-	right: 110%;
+@media (max-width: 48rem) {
+	.header__menu__container {
+		width: 100%;
+		height: 100vh;
+	}
+	.header__menu__container[data-visible="false"] {
+		display: none;
+		right: 110%;
+	}
 }
 
 @media (min-width: 48rem) {
@@ -200,6 +209,12 @@ header::after {
 	list-style: none;
 	margin: 0;
 	padding: 0;
+}
+
+@media (max-width: 48rem) {
+	.menu ul li {
+		padding-inline: 2rem;
+	}
 }
 
 @media (min-width: 48rem) {
@@ -301,7 +316,6 @@ header::after {
 		background-color: var(--clr-blue-700);
 	}
 }
-
 
 .menu ul li a {
 	align-items: center;
@@ -464,6 +478,7 @@ header::after {
 
 .planet__img {
 	grid-column: span 12;
+	margin-block-start: 2.5rem;
 	margin-block-end: 5rem;
 
 	position: relative;
