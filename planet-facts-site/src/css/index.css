@@ -578,6 +578,10 @@ header::after {
 		font-size: var(--fs-base);
 		line-height: var(--leading-relaxed);
 	}
+
+	.planet__content p:nth-child(1) {
+		height: 130px;
+	}
 }
 
 .planet__content .source {

@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import PLANET_LIST from "../../data.json";
 import { useEffect, useState } from "react";
 
-type SubMenu = "overview" | "structure" | "geology";
+type SubMenu = "overview" | "structure" | "surface";
 
 function Planet() {
 	const { pathname } = useLocation();
@@ -21,6 +21,7 @@ function Planet() {
 
 		setSelectedSubMenu(selectedSubMenu);
 	};
+	// TODO: Verificar bug ao selecionar "structure" e "geology".
 
 	const loadPlanetContents = () => {
 		switch (selectedSubMenu) {
@@ -28,7 +29,7 @@ function Planet() {
 				return planet.overview;
 			case "structure":
 				return planet.structure;
-			case "geology":
+			case "surface":
 				return planet.geology;
 		}
 	};
@@ -79,7 +80,7 @@ function Planet() {
 						<li>
 							<a
 								className={
-									selectedSubMenu === "structure"
+									selectedSubMenu === "surface"
 										? `active bg-${planet.name}`
 										: ""
 								}
@@ -91,7 +92,7 @@ function Planet() {
 				</nav>
 				<div className="planet__img">
 					<img src={loadPlanetImage()} alt={planet.name} />
-					{selectedSubMenu === "geology" ? (
+					{selectedSubMenu === "surface" ? (
 						<div className="planet__img__geology">
 							<img src={planet.images.geology} />
 						</div>
