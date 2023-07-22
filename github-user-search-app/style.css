@@ -1,0 +1,132 @@
+:root {
+	--clr-bluesteel-900: #2b3442;
+	--clr-bluesteel-600: #4b6a9b;
+	--clr-bluesteel-400: #697c9a;
+	--clr-bluesteel-300: #90a4d4;
+	--clr-neutral-800: #141d2f;
+	--clr-neutral-700: #1e2a47;
+	--clr-neutral-100: #f6f8ff;
+	--clr-neutral-50: #fefefe;
+	--clr-red-450: #f74646;
+	--clr-blue-450: #0079ff;
+	--clr-blue-250: #60abff;
+	--clr-white: #ffffff;
+}
+
+[data-theme="dark"] {
+	--clr-neutral-800: #f6f8ff;
+	--clr-neutral-700: #fefefe;
+	--clr-neutral-100: #141d2f;
+	--clr-neutral-50: #1e2a47;
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	background-color: var(--clr-neutral-100);
+	color: var(--clr-neutral-800);
+	font-family: "Space Mono", "ui-monospace", "monospace";
+	width: 90%;
+	max-width: 80rem;
+	margin-inline: auto;
+}
+
+h1 {
+	line-height: 1.5;
+}
+
+input,
+button {
+	font-family: inherit;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-block: 2rem;
+	max-width: 48rem;
+	margin-inline: auto;
+}
+
+header button {
+	align-items: center;
+	background-color: transparent;
+	border: 0;
+	color: var(--clr-neutral-800);
+	cursor: pointer;
+	display: flex;
+	gap: 1rem;
+	height: 20px;
+	width: fit-content;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+form {
+	background-color: var(--clr-neutral-700);
+	border-radius: 16px;
+	display: flex;
+	padding-block: 0.4rem;
+	padding-inline-start: clamp(0.75rem, 0.232rem + 2.21vw, 2rem);
+	padding-inline-end: 8px;
+	max-width: 48rem;
+	margin-inline: auto;
+}
+
+form input {
+	background-color: transparent;
+	border: 0;
+	color: var(--clr-neutral-50);
+	font-size: clamp(0.8125rem, 0.6669rem + 0.6211vw, 1.125rem);
+	flex: 1;
+}
+
+form input::placeholder {
+	color: var(--clr-neutral-50);
+	opacity: 1;
+}
+
+form button {
+	background-color: var(--clr-blue-450);
+	border: 0;
+	border-radius: 12px;
+	color: var(--clr-white);
+	cursor: pointer;
+	font-weight: bold;
+	padding-block: 0.75rem;
+	padding-inline: 1rem;
+}
+
+form button:hover {
+	background-color: var(--clr-blue-250);
+	transition: all 200ms ease-out;
+}
+
+section {
+	background-color: var(--clr-neutral-700);
+	border-radius: 16px;
+	color: var(--clr-neutral-50);
+	padding-block: 2rem;
+	padding-inline: 1.5rem;
+	max-width: 48rem;
+	margin-inline: auto;
+	margin-block-start: clamp(1rem, 0.793rem + 0.884vw, 1.5rem);
+}
+
+.perfil .header {
+    
+}
+
+.perfil .header img {
+	border-radius: 9999px;
+}
