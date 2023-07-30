@@ -51,6 +51,9 @@
 					name="search"
 					type="text"
 					placeholder="Search GitHub username..." />
+				<strong id="error" class="error" data-error="false"
+					>No results</strong
+				>
 				<button type="submit">Search</button>
 			</form>
 			<section>
@@ -77,11 +80,16 @@
 							elit. Donec odio. Quisque volutpat mattis eros.
 						</p>
 						<ul id="gh__stats" class="gh__stats">
-							<li>Repos <strong id="gh__public_repos">8</strong></li>
 							<li>
-								Followers <strong id="gh__followers">3938</strong>
+								Repos <strong id="gh__public_repos">8</strong>
 							</li>
-							<li>Following <strong id="gh__following">9</strong></li>
+							<li>
+								Followers
+								<strong id="gh__followers">3938</strong>
+							</li>
+							<li>
+								Following <strong id="gh__following">9</strong>
+							</li>
 						</ul>
 						<ul id="gh__socials" class="gh__socials">
 							<li>
@@ -180,38 +188,52 @@
 		<script type="text/javascript">
 			const input = document.getElementById("searchInput");
 			const form = document.forms["searchForm"];
+			const error = document.getElementById("error");
 
 			form.addEventListener("submit", async (e) => {
 				e.preventDefault();
 				const formData = new FormData(form);
 
-				const user = await fetch(
+				const data = await fetch(
 					`https://api.github.com/users/${formData.get("search")}`
-				).then((res) => res.json());
-
-				if (user) {
-					console.log(user);
-					updateUserContent(user);
-				} else {
-				}
+				)
+					.then(async (res) => {
+						if (res.ok) {
+							error.style.visibility = "hidden";
+							updateUserContent(await res.json());
+							return;
+						} else {
+							throw new Error(res.json());
+						}
+					})
+					.catch((err) => {
+						error.style.visibility = "visible";
+					});
 			});
 
 			function updateUserContent(user) {
 				document.getElementById("avatar_url").src = user.avatar_url;
 				document.getElementById("gh__name").textContent = user.name;
 				document.getElementById("gh__login").textContent = user.login;
-				document.getElementById("gh__createdAt").textContent = user.createdAt;
+				document.getElementById("gh__createdAt").textContent =
+					Intl.DateTimeFormat("en-us").format(user.created_at);
 				document.getElementById("gh__bio").textContent = user.bio;
-				document.getElementById("gh__public_repos").textContent = user.public_repos;
-				document.getElementById("gh__followers").textContent = user.followers;
-				document.getElementById("gh__following").textContent = user.following;
+				document.getElementById("gh__public_repos").textContent =
+					user.public_repos;
+				document.getElementById("gh__followers").textContent =
+					user.followers;
+				document.getElementById("gh__following").textContent =
+					user.following;
+				document.getElementById("html_url").href = user.html_url;
+				document.getElementById("html_url").textContent =
+					user.html_url.replace("https://", "");
 				document.getElementById("location").textContent =
 					user.location ?? "Not available";
 				document.getElementById("company").textContent =
 					user.company ?? "Not available";
 				document.getElementById("twitter_username").textContent =
 					user.twitter_username ?? "Not available";
-				document.getElementById("bio")
+				document.getElementById("bio");
 			}
 		</script>
 	</body>

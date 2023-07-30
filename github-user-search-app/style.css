@@ -89,6 +89,7 @@ form {
 	padding-inline-end: 8px;
 	max-width: 46rem;
 	margin-inline: auto;
+	position: relative;
 }
 
 form input {
@@ -102,6 +103,15 @@ form input {
 form input::placeholder {
 	color: var(--clr-neutral-50);
 	opacity: 1;
+}
+
+form .error {
+	position: absolute;
+	right: 10rem;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--clr-red-450);
+	visibility: hidden;
 }
 
 form button {
