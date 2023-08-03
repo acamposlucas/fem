@@ -64,8 +64,10 @@
 							src="https://place-hold.it/70"
 							alt="" />
 						<div class="perfil__content">
-							<h1 id="gh__name">The Octocat</h1>
-							<strong id="gh__login">@octocat</strong>
+							<div>
+								<h1 id="gh__name">The Octocat</h1>
+								<strong id="gh__login">@octocat</strong>
+							</div>
 							<small
 								>Joined
 								<span id="gh__createdAt"
@@ -193,22 +195,18 @@
 			form.addEventListener("submit", async (e) => {
 				e.preventDefault();
 				const formData = new FormData(form);
-
 				const data = await fetch(
 					`https://api.github.com/users/${formData.get("search")}`
-				)
-					.then(async (res) => {
-						if (res.ok) {
-							error.style.visibility = "hidden";
-							updateUserContent(await res.json());
-							return;
-						} else {
-							throw new Error(res.json());
-						}
-					})
-					.catch((err) => {
-						error.style.visibility = "visible";
-					});
+				);
+
+				const user = await data.json();
+
+				if (user) {
+					error.style.visibility = "hidden";
+					updateUserContent(user);
+				} else {
+					error.style.visibility = "visible";
+				}
 			});
 
 			function updateUserContent(user) {
@@ -216,7 +214,7 @@
 				document.getElementById("gh__name").textContent = user.name;
 				document.getElementById("gh__login").textContent = user.login;
 				document.getElementById("gh__createdAt").textContent =
-					Intl.DateTimeFormat("en-us").format(user.created_at);
+					Intl.DateTimeFormat("en-us", { dateStyle: "long"}).format(new Date(user.created_at));
 				document.getElementById("gh__bio").textContent = user.bio;
 				document.getElementById("gh__public_repos").textContent =
 					user.public_repos;
