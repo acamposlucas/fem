@@ -1,7 +1,15 @@
+import { useState } from "react";
+import HomePage from "./pages/Home";
+
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+
+  const handleDarkMode = () => {
+    setIsDarkMode((state) => !state);
+  };
   return (
     <>
-      <h1 className="mx-auto max-w-7xl border-0">Hello World</h1>
+      <HomePage isDarkMode={isDarkMode} handleDarkMode={handleDarkMode} />
     </>
   );
 }
