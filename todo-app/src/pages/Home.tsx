@@ -2,6 +2,9 @@ import Layout from "../layout/Layout";
 import IconMoon from "../assets/icon-moon.svg";
 import IconSun from "../assets/icon-sun.svg";
 import IconCross from "../assets/icon-cross.svg";
+import { useState } from "react";
+
+type selectedMenu = "all" | "active" | "completed";
 
 function HomePage({
   isDarkMode,
@@ -10,6 +13,12 @@ function HomePage({
   isDarkMode: boolean;
   handleDarkMode: () => void;
 }) {
+  const [selectedMenu, setSelectedMenu] = useState<selectedMenu>("all");
+
+  const handleSelectedMenu = (menu: selectedMenu) => {
+    setSelectedMenu(menu);
+  };
+
   return (
     <Layout>
       <header className="h-80 bg-bg-mobile-dark bg-cover lg:h-96 lg:bg-bg-desktop-dark">
@@ -34,7 +43,7 @@ function HomePage({
             className="bg-transparent text-zinc-300 outline-none placeholder:text-zinc-600"
           />
         </div>
-        <div className="mt-12 overflow-auto rounded-lg">
+        <div className="mt-4 overflow-auto rounded-lg">
           <ul>
             {[1, 2, 3, 4, 5].map((v) => (
               <li
@@ -55,8 +64,57 @@ function HomePage({
                 </button>
               </li>
             ))}
+            <li className="flex items-center justify-between border-b-[1px] border-zinc-700 bg-zinc-800 px-5 py-4 text-zinc-400 text-xs last:border-none">
+              <strong className="font-normal text-xs">5 items left</strong>
+              <button type="button" className="text-xs">
+                Clear completed
+              </button>
+            </li>
           </ul>
         </div>
+        <div className="mt-4 rounded-md bg-zinc-800 px-5 py-3">
+          <nav>
+            <ul className="flex justify-center gap-5 text-zinc-400">
+              <li>
+                <button
+                  onClick={() => handleSelectedMenu("all")}
+                  className={`${
+                    selectedMenu === "all" ? "text-blue-600" : "text-zinc-400"
+                  }`}
+                >
+                  All
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleSelectedMenu("active")}
+                  className={`${
+                    selectedMenu === "active"
+                      ? "text-blue-600"
+                      : "text-zinc-400"
+                  }`}
+                >
+                  Active
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleSelectedMenu("completed")}
+                  className={`${
+                    selectedMenu === "completed"
+                      ? "text-blue-600"
+                      : "text-zinc-400"
+                  }`}
+                >
+                  Completed
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <strong className="mt-10 block text-center font-normal text-zinc-400 text-xs">
+          Drag and drop to reorder list
+        </strong>
       </main>
     </Layout>
   );
