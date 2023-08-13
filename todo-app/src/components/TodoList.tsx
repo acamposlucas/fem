@@ -23,7 +23,9 @@ function TodoList({
     <section>
       {filteredTodos.length < 1 ? (
         <p className="bg-zinc-800 px-5 py-4 text-center text-zinc-400 text-xs">
-          No tasks scheduled.
+          {selectedMenu === "completed"
+            ? "No tasks completed"
+            : "No tasks scheduled"}
         </p>
       ) : (
         <>
@@ -86,14 +88,14 @@ function TodoList({
               </button>
             </li>
           </ul>
-          <div className="mt-4 rounded-md bg-zinc-800 px-5 py-3">
-            <FilterMenu
-              selectedMenu={selectedMenu}
-              handleSelectedMenu={handleSelectedMenu}
-            />
-          </div>
         </>
       )}
+      <div className="mt-4 rounded-md bg-zinc-800 px-5 py-3">
+        <FilterMenu
+          selectedMenu={selectedMenu}
+          handleSelectedMenu={handleSelectedMenu}
+        />
+      </div>
     </section>
   );
 }
