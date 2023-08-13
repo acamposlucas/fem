@@ -1,0 +1,1 @@
+export type selectedMenu = "all" | "active" | "completed";
