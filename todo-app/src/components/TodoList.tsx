@@ -7,17 +7,23 @@ interface TodoListProps {
   filteredTodos: Todo[];
   handleSelectedMenu: (menu: selectedMenu) => void;
   selectedMenu: selectedMenu;
+  setFilteredTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
 
 function TodoList({
   filteredTodos,
   handleSelectedMenu,
   selectedMenu,
+  setFilteredTodos,
 }: TodoListProps) {
-  const handleToggleTodoIsDoneStatus = (todo: Todo, event: ChangeEvent) => {
+  const handleToggleTodoIsDoneStatus = (id: number, event: ChangeEvent) => {
     const target = event.target as HTMLInputElement;
-    const updatedTodo = { ...todo, isDone: target.checked };
-    //   todoService.updateTodo(todo.id, updatedTodo);
+    const nextList = [...filteredTodos];
+    const todo = nextList.find((todo) => todo.id === id);
+    if (todo !== undefined) {
+      todo.isDone = target.checked;
+      setFilteredTodos(nextList);
+    }
   };
   return (
     <section>
@@ -40,7 +46,7 @@ function TodoList({
                     <input
                       type="checkbox"
                       defaultChecked={todo.isDone}
-                      onChange={(e) => handleToggleTodoIsDoneStatus(todo, e)}
+                      onChange={(e) => handleToggleTodoIsDoneStatus(todo.id, e)}
                       id={String(todo.id)}
                       className="peer absolute left-0 top-0 h-[1px] w-[1px] opacity-0"
                     />
@@ -82,7 +88,9 @@ function TodoList({
             <li className="flex items-center justify-between border-b-[1px] border-zinc-700 bg-zinc-800 px-5 py-4 text-zinc-500 text-xs last:border-none">
               <strong className="font-normal text-xs">{`${
                 filteredTodos.length
-              } item${filteredTodos.length > 1 ? "s" : ""} left`}</strong>
+              } item${filteredTodos.length > 1 ? "s" : ""} ${
+                selectedMenu === "completed" ? "completed" : "left"
+              }`}</strong>
               <button type="button" className="text-zinc-500 text-xs">
                 Clear completed
               </button>

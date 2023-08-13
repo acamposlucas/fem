@@ -1,11 +1,10 @@
 import Layout from "../layout/Layout";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Todo, selectedMenu } from "../models";
 import { TodoService } from "../services/todo.service";
 import TodoList from "../components/TodoList";
 import TodoForm from "../components/TodoForm";
 import Header from "../components/Header";
-import FilterMenu from "../components/FilterMenu";
 
 interface HomePageProps {
   isDarkMode: boolean;
@@ -23,16 +22,14 @@ function HomePage({ isDarkMode, handleDarkMode }: HomePageProps) {
     switch (menu) {
       case "active":
         setFilteredTodos(todos.filter((todo) => !todo.isDone));
-        console.log("ACTIVE:", filteredTodos);
         break;
       case "completed":
-        setFilteredTodos((prev) => prev.filter((todo) => todo.isDone));
-        console.log("COMPLETED:", filteredTodos);
+        setFilteredTodos(todos.filter((todo) => todo.isDone));
         break;
       default:
-        setFilteredTodos((prev) => todos);
-        console.log("ALL:", filteredTodos);
+        setFilteredTodos(todos);
     }
+    console.log(todos);
   };
 
   return (
@@ -45,9 +42,9 @@ function HomePage({ isDarkMode, handleDarkMode }: HomePageProps) {
             handleSelectedMenu={handleSelectedMenu}
             selectedMenu={selectedMenu}
             filteredTodos={filteredTodos}
+            setFilteredTodos={setFilteredTodos}
           />
         </div>
-
         <strong className="mt-10 block text-center font-normal text-zinc-400 text-xs">
           Drag and drop to reorder list
         </strong>
