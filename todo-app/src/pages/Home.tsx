@@ -17,6 +17,10 @@ function HomePage({ isDarkMode, handleDarkMode }: HomePageProps) {
   const [todos, setTodos] = useState<Todo[]>(todoService.getTodos());
   const [filteredTodos, setFilteredTodos] = useState<Todo[]>(todos);
 
+  useEffect(() => {
+    setFilteredTodos(todos);
+  }, [todos]);
+
   const handleSelectedMenu = (menu: selectedMenu) => {
     setSelectedMenu(menu);
     switch (menu) {
@@ -35,7 +39,7 @@ function HomePage({ isDarkMode, handleDarkMode }: HomePageProps) {
     <Layout>
       <Header handleDarkMode={handleDarkMode} isDarkMode={isDarkMode} />
       <main className="-my-48 mx-auto w-11/12 max-w-3xl">
-        <TodoForm />
+        <TodoForm setTodos={setTodos} />
         <div className="mt-4 overflow-auto rounded-lg">
           <TodoList
             handleSelectedMenu={handleSelectedMenu}

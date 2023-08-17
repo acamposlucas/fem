@@ -19,10 +19,22 @@ function TodoList({
   const handleToggleTodoIsDoneStatus = (id: number, event: ChangeEvent) => {
     const target = event.target as HTMLInputElement;
     const nextList = [...filteredTodos];
+
     const todo = nextList.find((todo) => todo.id === id);
     if (todo !== undefined) {
       todo.isDone = target.checked;
       setFilteredTodos(nextList);
+    }
+  };
+
+  const countTasks = (menu: selectedMenu): number => {
+    switch (menu) {
+      case "completed": {
+        return filteredTodos.filter((todo) => todo.isDone).length;
+      }
+      default: {
+        return filteredTodos.filter((todo) => !todo.isDone).length;
+      }
     }
   };
   return (
@@ -86,9 +98,9 @@ function TodoList({
               </li>
             ))}
             <li className="flex items-center justify-between border-b-[1px] border-zinc-700 bg-zinc-800 px-5 py-4 text-zinc-500 text-xs last:border-none">
-              <strong className="font-normal text-xs">{`${
-                filteredTodos.length
-              } item${filteredTodos.length > 1 ? "s" : ""} ${
+              <strong className="font-normal text-xs">{`${countTasks(
+                selectedMenu
+              )} item${countTasks(selectedMenu) > 1 ? "s" : ""} ${
                 selectedMenu === "completed" ? "completed" : "left"
               }`}</strong>
               <button type="button" className="text-zinc-500 text-xs">
