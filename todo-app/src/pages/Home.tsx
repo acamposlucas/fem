@@ -29,13 +29,12 @@ function HomePage({ isDarkMode, handleDarkMode }: HomePageProps) {
       default:
         setFilteredTodos(todos);
     }
-    console.log(todos);
   };
 
   return (
     <Layout>
       <Header handleDarkMode={handleDarkMode} isDarkMode={isDarkMode} />
-      <main className="-my-48 mx-auto w-11/12 max-w-6xl">
+      <main className="-my-48 mx-auto w-11/12 max-w-3xl">
         <TodoForm />
         <div className="mt-4 overflow-auto rounded-lg">
           <TodoList
