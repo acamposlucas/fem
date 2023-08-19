@@ -2,6 +2,7 @@ import { ChangeEvent } from "react";
 import IconCross from "../assets/icon-cross.svg";
 import { Todo, selectedMenu } from "../models";
 import FilterMenu from "./FilterMenu";
+import { useMediaQuery } from "usehooks-ts";
 
 interface TodoListProps {
   filteredTodos: Todo[];
@@ -16,6 +17,7 @@ function TodoList({
   selectedMenu,
   setFilteredTodos,
 }: TodoListProps) {
+  const matches = useMediaQuery("(min-width: 768px)");
   const handleToggleTodoIsDoneStatus = (id: number, event: ChangeEvent) => {
     const target = event.target as HTMLInputElement;
     const nextList = [...filteredTodos];
@@ -103,6 +105,12 @@ function TodoList({
               )} item${countTasks(selectedMenu) > 1 ? "s" : ""} ${
                 selectedMenu === "completed" ? "completed" : "left"
               }`}</strong>
+              {matches ? (
+                <FilterMenu
+                  selectedMenu={selectedMenu}
+                  handleSelectedMenu={handleSelectedMenu}
+                />
+              ) : null}
               <button type="button" className="text-zinc-500 text-xs">
                 Clear completed
               </button>
@@ -110,12 +118,14 @@ function TodoList({
           </ul>
         </>
       )}
-      <div className="mt-4 rounded-md bg-zinc-800 px-5 py-3">
-        <FilterMenu
-          selectedMenu={selectedMenu}
-          handleSelectedMenu={handleSelectedMenu}
-        />
-      </div>
+      {!matches ? (
+        <div className="mt-4 rounded-md bg-zinc-800 px-5 py-3">
+          <FilterMenu
+            selectedMenu={selectedMenu}
+            handleSelectedMenu={handleSelectedMenu}
+          />
+        </div>
+      ) : null}
     </section>
   );
 }
