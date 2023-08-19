@@ -45,6 +45,8 @@ function HomePage({ isDarkMode, handleDarkMode }: HomePageProps) {
             handleSelectedMenu={handleSelectedMenu}
             selectedMenu={selectedMenu}
             filteredTodos={filteredTodos}
+            todos={todos}
+            setTodos={setTodos}
             setFilteredTodos={setFilteredTodos}
           />
         </div>

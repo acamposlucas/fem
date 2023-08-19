@@ -6,9 +6,11 @@ import { useMediaQuery } from "usehooks-ts";
 
 interface TodoListProps {
   filteredTodos: Todo[];
+  todos: Todo[];
   handleSelectedMenu: (menu: selectedMenu) => void;
   selectedMenu: selectedMenu;
   setFilteredTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
 
 function TodoList({
@@ -16,6 +18,8 @@ function TodoList({
   handleSelectedMenu,
   selectedMenu,
   setFilteredTodos,
+  todos,
+  setTodos,
 }: TodoListProps) {
   const matches = useMediaQuery("(min-width: 768px)");
   const handleToggleTodoIsDoneStatus = (id: number, event: ChangeEvent) => {
@@ -37,6 +41,14 @@ function TodoList({
       default: {
         return filteredTodos.filter((todo) => !todo.isDone).length;
       }
+    }
+  };
+
+  const handleDeleteTask = (id: number): void => {
+    const task = todos.find((todo) => todo.id === id);
+    if (task) {
+      const newTodos = todos.filter((todo) => todo.id !== id);
+      setTodos(newTodos);
     }
   };
   return (
@@ -93,6 +105,7 @@ function TodoList({
                 <button
                   type="button"
                   className="inline-flex items-center justify-center"
+                  onClick={() => handleDeleteTask(todo.id)}
                 >
                   <span className="sr-only">Delete todo</span>
                   <img src={IconCross} alt="" />
