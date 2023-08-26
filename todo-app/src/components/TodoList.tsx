@@ -47,10 +47,16 @@ function TodoList({
   const handleDeleteTask = (id: number): void => {
     const task = todos.find((todo) => todo.id === id);
     if (task) {
-      const newTodos = todos.filter((todo) => todo.id !== id);
-      setTodos(newTodos);
+      const nextList = todos.filter((todo) => todo.id !== id);
+      setTodos(nextList);
     }
   };
+
+  const handleClearCompleted = () => {
+    const nextList = todos.filter((todo) => !todo.isDone);
+    setTodos(nextList);
+  };
+  
   return (
     <section>
       {filteredTodos.length < 1 ? (
@@ -124,14 +130,18 @@ function TodoList({
                   handleSelectedMenu={handleSelectedMenu}
                 />
               ) : null}
-              <button type="button" className="text-zinc-500 text-xs">
+              <button
+                type="button"
+                onClick={handleClearCompleted}
+                className="text-zinc-500 text-xs"
+              >
                 Clear completed
               </button>
             </li>
           </ul>
         </>
       )}
-      {!matches ? (
+      {!matches || filteredTodos.length < 1 ? (
         <div className="mt-4 rounded-md bg-zinc-800 px-5 py-3">
           <FilterMenu
             selectedMenu={selectedMenu}
