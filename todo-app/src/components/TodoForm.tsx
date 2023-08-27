@@ -1,11 +1,9 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 import { Todo } from "../models";
+import TodosContext from "../contexts/TodosContext";
 
-interface TodoFormProps {
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
-}
-
-function TodoForm({ setTodos }: TodoFormProps) {
+function TodoForm() {
+  const { setTodos } = useContext(TodosContext);
   const [newTask, setNewTask] = useState<string>("");
 
   const onSubmitNewTask = (e: FormEvent) => {

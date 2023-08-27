@@ -1,10 +1,10 @@
 import Layout from "../layout/Layout";
-import { useEffect, useState } from "react";
-import { Todo, selectedMenu } from "../models";
-import { TodoService } from "../services/todo.service";
+import { useContext, useEffect, useState } from "react";
+import { selectedMenu } from "../models";
 import TodoList from "../components/TodoList";
 import TodoForm from "../components/TodoForm";
 import Header from "../components/Header";
+import { TodosContext } from "../contexts/TodosContext";
 
 interface HomePageProps {
   isDarkMode: boolean;
@@ -12,10 +12,8 @@ interface HomePageProps {
 }
 
 function HomePage({ isDarkMode, handleDarkMode }: HomePageProps) {
-  const todoService = new TodoService();
+  const { todos, setFilteredTodos } = useContext(TodosContext);
   const [selectedMenu, setSelectedMenu] = useState<selectedMenu>("all");
-  const [todos, setTodos] = useState<Todo[]>(todoService.getTodos());
-  const [filteredTodos, setFilteredTodos] = useState<Todo[]>(todos);
 
   useEffect(() => {
     setFilteredTodos(todos);
@@ -39,15 +37,11 @@ function HomePage({ isDarkMode, handleDarkMode }: HomePageProps) {
     <Layout>
       <Header handleDarkMode={handleDarkMode} isDarkMode={isDarkMode} />
       <main className="-my-48 mx-auto w-11/12 max-w-3xl">
-        <TodoForm setTodos={setTodos} />
+        <TodoForm />
         <div className="mt-4 overflow-auto rounded-lg">
           <TodoList
             handleSelectedMenu={handleSelectedMenu}
             selectedMenu={selectedMenu}
-            filteredTodos={filteredTodos}
-            todos={todos}
-            setTodos={setTodos}
-            setFilteredTodos={setFilteredTodos}
           />
         </div>
         <strong className="mt-10 block text-center font-normal text-zinc-400 text-xs">

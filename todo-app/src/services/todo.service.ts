@@ -1,7 +1,7 @@
 import { Todo } from "../models";
 
 export class TodoService {
-  todos: Todo[] = [
+  static todos: Todo[] = [
     {
       id: 1,
       isDone: false,
@@ -39,18 +39,18 @@ export class TodoService {
     },
   ];
 
-  getTodos(): Todo[] {
+  static getTodos(): Todo[] {
     return this.todos;
   }
 
-  getCompletedTodos(): Todo[] {
-    return this.todos.filter((todo) => todo.finishedAt !== null);
-  }
+  // getCompletedTodos(): Todo[] {
+  //   return this.todos.filter((todo) => todo.finishedAt !== null);
+  // }
 
-  updateTodo(id: number, updatedTodo: Todo) {
-    let todo = this.todos.find((todo) => todo.id === id);
-    if (todo !== undefined) {
-      todo = updatedTodo;
-    }
-  }
+  // updateTodo(id: number, updatedTodo: Todo) {
+  //   let todo = this.todos.find((todo) => todo.id === id);
+  //   if (todo !== undefined) {
+  //     todo = updatedTodo;
+  //   }
+  // }
 }
