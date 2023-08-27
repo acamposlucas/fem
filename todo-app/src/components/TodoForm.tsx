@@ -22,7 +22,7 @@ function TodoForm() {
   return (
     <form
       onSubmit={onSubmitNewTask}
-      className="rounded-md bg-zinc-800 px-5 py-3"
+      className="rounded-md dark:bg-zinc-800 bg-zinc-300 px-5 py-3"
     >
       <label htmlFor="todo" className="sr-only">
         Create a new todo

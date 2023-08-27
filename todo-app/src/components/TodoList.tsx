@@ -42,7 +42,7 @@ function TodoList({ selectedMenu, handleSelectedMenu }: TodoListProps) {
         <>
           <ul>
             {filteredTodos.map((todo: Todo) => (
-              <TodoItem todo={todo} />
+              <TodoItem todo={todo} key={todo.id} />
             ))}
             <li className="flex items-center justify-between border-b-[1px] border-zinc-700 bg-zinc-800 px-5 py-4 text-zinc-500 text-xs last:border-none">
               <strong className="font-normal text-xs">{`${countTasks(

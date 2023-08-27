@@ -6,12 +6,7 @@ import TodoForm from "../components/TodoForm";
 import Header from "../components/Header";
 import { TodosContext } from "../contexts/TodosContext";
 
-interface HomePageProps {
-  isDarkMode: boolean;
-  handleDarkMode: () => void;
-}
-
-function HomePage({ isDarkMode, handleDarkMode }: HomePageProps) {
+function HomePage() {
   const { todos, setFilteredTodos } = useContext(TodosContext);
   const [selectedMenu, setSelectedMenu] = useState<selectedMenu>("all");
 
@@ -35,7 +30,7 @@ function HomePage({ isDarkMode, handleDarkMode }: HomePageProps) {
 
   return (
     <Layout>
-      <Header handleDarkMode={handleDarkMode} isDarkMode={isDarkMode} />
+      <Header />
       <main className="-my-48 mx-auto w-11/12 max-w-3xl">
         <TodoForm />
         <div className="mt-4 overflow-auto rounded-lg">

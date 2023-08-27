@@ -1,17 +1,15 @@
 import { useState } from "react";
 import HomePage from "./pages/Home";
 import { TodosProvider } from "./contexts/TodosContext";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
-
-  const handleDarkMode = () => {
-    setIsDarkMode((state) => !state);
-  };
   return (
-    <TodosProvider>
-      <HomePage isDarkMode={isDarkMode} handleDarkMode={handleDarkMode} />
-    </TodosProvider>
+    <ThemeProvider>
+      <TodosProvider>
+        <HomePage />
+      </TodosProvider>
+    </ThemeProvider>
   );
 }
 
