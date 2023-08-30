@@ -19,8 +19,6 @@ export const ThemeContext = createContext<ThemeContextProps>(
 function ThemeProvider({ children }: ThemeProviderProps) {
   const [theme, setTheme] = useState<themeOptions>("dark");
   const handleToggleTheme = () => {
-    console.log("handleToggleTheme: ", theme);
-
     if (theme === "light") {
       document.documentElement.classList.remove("light");
       document.documentElement.classList.add("dark");

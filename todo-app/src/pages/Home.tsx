@@ -37,6 +37,7 @@ function HomePage() {
           <TodoList
             handleSelectedMenu={handleSelectedMenu}
             selectedMenu={selectedMenu}
+            setSelectedMenu={setSelectedMenu}
           />
         </div>
         <strong className="mt-10 block text-center font-normal text-zinc-400 text-xs">

@@ -7,10 +7,16 @@ import TodosContext from "../contexts/TodosContext";
 
 interface TodoListProps {
   selectedMenu: selectedMenu;
+  setSelectedMenu: React.Dispatch<React.SetStateAction<selectedMenu>>;
+
   handleSelectedMenu: (menu: selectedMenu) => void;
 }
 
-function TodoList({ selectedMenu, handleSelectedMenu }: TodoListProps) {
+function TodoList({
+  selectedMenu,
+  setSelectedMenu,
+  handleSelectedMenu,
+}: TodoListProps) {
   const { filteredTodos, setTodos, todos } = useContext(TodosContext);
   const matches = useMediaQuery("(min-width: 768px)");
 
@@ -28,6 +34,7 @@ function TodoList({ selectedMenu, handleSelectedMenu }: TodoListProps) {
   const handleClearCompleted = () => {
     const nextList = todos.filter((todo) => !todo.isDone);
     setTodos(nextList);
+    setSelectedMenu("all");
   };
 
   return (
@@ -44,7 +51,7 @@ function TodoList({ selectedMenu, handleSelectedMenu }: TodoListProps) {
             {filteredTodos.map((todo: Todo) => (
               <TodoItem todo={todo} key={todo.id} />
             ))}
-            <li className="flex items-center justify-between border-b-[1px] border-zinc-700 bg-zinc-800 px-5 py-4 text-zinc-500 text-xs last:border-none">
+            <li className="flex items-center justify-between border-b-[1px] border-zinc-700 bg-zinc-200 px-5 py-4 text-zinc-700 shadow-2xl text-xs last:border-none dark:bg-zinc-800 dark:text-zinc-500">
               <strong className="font-normal text-xs">{`${countTasks(
                 selectedMenu
               )} item${countTasks(selectedMenu) > 1 ? "s" : ""} ${
@@ -59,7 +66,7 @@ function TodoList({ selectedMenu, handleSelectedMenu }: TodoListProps) {
               <button
                 type="button"
                 onClick={handleClearCompleted}
-                className="text-zinc-500 text-xs"
+                className="text-zinc-500 text-xs dark:text-zinc-600"
               >
                 Clear completed
               </button>

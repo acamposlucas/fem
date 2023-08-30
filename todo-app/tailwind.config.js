@@ -5,8 +5,10 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        "bg-mobile-dark": "url('src/assets/bg-mobile-dark.jpg')",
-        "bg-desktop-dark": "url('src/assets/bg-desktop-dark.jpg')",
+        "mobile-dark": "url('src/assets/bg-mobile-dark.jpg')",
+        "desktop-dark": "url('src/assets/bg-desktop-dark.jpg')",
+        "mobile-light": "url('src/assets/bg-mobile-light.jpg')",
+        "desktop-light": "url('src/assets/bg-desktop-light.jpg')"
       },
       fontFamily: {
         sans: ["Josefin Sans"],

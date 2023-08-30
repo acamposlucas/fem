@@ -32,7 +32,7 @@ function TodoItem({ todo }: TodoItemProps) {
   return (
     <li
       key={todo.id}
-      className="flex items-center justify-between border-b-[1px] border-zinc-700 bg-zinc-800 px-5 py-4 text-zinc-400 text-xs last:border-none"
+      className="flex items-center justify-between border-b-[1px] border-zinc-400 bg-zinc-200 px-5 py-4 text-zinc-800 text-xs last:border-none dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-400"
     >
       <span className="flex">
         <div className="relative me-3 inline-block h-5 w-5">

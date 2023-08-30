@@ -22,7 +22,7 @@ function TodoForm() {
   return (
     <form
       onSubmit={onSubmitNewTask}
-      className="rounded-md dark:bg-zinc-800 bg-zinc-300 px-5 py-3"
+      className="rounded-md bg-zinc-200 px-5 py-3 dark:bg-zinc-800"
     >
       <label htmlFor="todo" className="sr-only">
         Create a new todo
@@ -33,7 +33,7 @@ function TodoForm() {
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
         placeholder="Create a new todo..."
-        className="bg-transparent text-zinc-300 outline-none placeholder:text-zinc-600"
+        className="bg-transparent text-zinc-500 outline-none placeholder:text-zinc-500"
       />
     </form>
   );
