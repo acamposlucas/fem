@@ -1,4 +1,4 @@
-import { ChangeEvent, useContext } from "react";
+import { ChangeEvent, useContext, useRef } from "react";
 import IconCross from "../assets/icon-cross.svg";
 import { Todo } from "../models";
 import TodosContext from "../contexts/TodosContext";
@@ -10,6 +10,9 @@ interface TodoItemProps {
 function TodoItem({ todo }: TodoItemProps) {
   const { todos, setTodos, filteredTodos, setFilteredTodos } =
     useContext(TodosContext);
+
+  const itemRef = useRef<HTMLLIElement | null>(null);
+
   const handleToggleTodoIsDoneStatus = (id: number, event: ChangeEvent) => {
     const target = event.target as HTMLInputElement;
     const nextList = [...filteredTodos];
@@ -29,9 +32,56 @@ function TodoItem({ todo }: TodoItemProps) {
     }
   };
 
+  // const onDragStart = (e: React.DragEvent<HTMLLIElement>) => {
+  //   const target = e.target as HTMLLIElement;
+  //   // Removes default drag ghost
+  //   // Memory Leak?
+  //   // e.dataTransfer.effectAllowed = "move";
+  //   // e.dataTransfer.setDragImage(target, 50000, 50000);
+
+  //   // Custom drag ghost
+  //   let ghostNode = target.cloneNode(true) as HTMLLIElement;
+  //   ghostNode.id = "ghostNode";
+  //   ghostNode.style.position = "absolute";
+
+  //   ghostNode.style.top = e.pageY - target.offsetHeight / 2 + "px";
+  //   ghostNode.style.left = e.pageY - target.offsetWidth / 2 + "px";
+
+  //   ghostNode.style.height = target.offsetHeight + "px";
+  //   ghostNode.style.width = target.offsetWidth + "px";
+
+  //   ghostNode.style.opacity = "0.8";
+  //   ghostNode.style.pointerEvents = "none";
+
+  //   document.body.prepend(ghostNode);
+
+  //   // Identify selected item
+  //   itemRef.current?.classList.add("opacity-80");
+  // };
+
+  // const onDrag = (e: React.DragEvent<HTMLLIElement>) => {
+  //   const target = e.target as HTMLLIElement;
+
+  //   // Move ghost node with mouse
+  //   const ghostNode = document.querySelector("#ghostNode") as HTMLLIElement;
+  //   ghostNode.style.top = e.pageY - target.offsetHeight / 2 + "px";
+  //   ghostNode.style.left = e.pageY - target.offsetWidth / 2 + "px";
+  // };
+
+  // const onDragEnd = (e: React.DragEvent<HTMLLIElement>) => {
+  //   // Remove ghost node
+  //   (document.querySelector("#ghostNode") as HTMLLIElement).remove();
+  //   itemRef.current?.classList.remove("opacity-80");
+  // };
+
   return (
     <li
       key={todo.id}
+      ref={itemRef}
+      // draggable="true"
+      // onDragStart={(e) => onDragStart(e)}
+      // onDrag={(e) => onDrag(e)}
+      // onDragEnd={(e) => onDragEnd(e)}
       className="flex items-center justify-between border-b-[1px] border-zinc-400 bg-zinc-200 px-5 py-4 text-zinc-800 text-xs last:border-none dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-400"
     >
       <span className="flex">
@@ -67,7 +117,7 @@ function TodoItem({ todo }: TodoItemProps) {
         onClick={() => handleDeleteTask(todo.id)}
       >
         <span className="sr-only">Delete todo</span>
-        <img src={IconCross} alt="" />
+        <img src={IconCross} alt="" className="" />
       </button>
     </li>
   );
