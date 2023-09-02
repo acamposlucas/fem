@@ -20,9 +20,9 @@ function HomePage() {
         <div className="mt-4 overflow-auto rounded-lg">
           <TodoList />
         </div>
-        <strong className="mt-10 block text-center font-normal text-zinc-400 text-xs">
+        {/* <strong className="mt-10 block text-center font-normal text-zinc-400 text-xs">
           Drag and drop to reorder list
-        </strong>
+        </strong> */}
       </main>
     </Layout>
   );
