@@ -3,7 +3,7 @@ import { Todo } from "../models";
 import TodosContext from "../contexts/TodosContext";
 
 function TodoForm() {
-  const { setTodos } = useContext(TodosContext);
+  const { setTodos, selectedMenu, setSelectedMenu } = useContext(TodosContext);
   const [newTask, setNewTask] = useState<string>("");
 
   const onSubmitNewTask = (e: FormEvent) => {
@@ -17,6 +17,9 @@ function TodoForm() {
       finishedAt: null,
     };
     setTodos((prev) => [...prev, task]);
+    if (selectedMenu === "completed") {
+      setSelectedMenu("all");
+    }
     setNewTask("");
   };
   return (

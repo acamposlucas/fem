@@ -4,19 +4,16 @@ import FilterMenu from "./FilterMenu";
 import TodoItem from "./TodoItem";
 import TodosContext from "../contexts/TodosContext";
 
-interface TodoListProps {
-  selectedMenu: selectedMenu;
-  setSelectedMenu: React.Dispatch<React.SetStateAction<selectedMenu>>;
+interface TodoListProps {}
 
-  handleSelectedMenu: (menu: selectedMenu) => void;
-}
-
-function TodoList({
-  selectedMenu,
-  setSelectedMenu,
-  handleSelectedMenu,
-}: TodoListProps) {
-  const { filteredTodos, setTodos, todos } = useContext(TodosContext);
+function TodoList({}: TodoListProps) {
+  const {
+    filteredTodos,
+    setTodos,
+    todos,
+    selectedMenu,
+    setSelectedMenu,
+  } = useContext(TodosContext);
 
   const countTasks = (menu: selectedMenu): number => {
     switch (menu) {
@@ -38,11 +35,16 @@ function TodoList({
   return (
     <section>
       {filteredTodos.length < 1 ? (
-        <p className="bg-zinc-800 px-5 py-4 text-center text-zinc-400 text-xs">
-          {selectedMenu === "completed"
-            ? "No tasks completed"
-            : "No tasks scheduled"}
-        </p>
+        <>
+          <p className="bg-zinc-200 px-5 py-4 text-center text-zinc-400 text-xs dark:bg-zinc-800">
+            {selectedMenu === "completed"
+              ? "No tasks completed"
+              : "No tasks scheduled"}
+          </p>
+          <div className="mt-4 rounded-md bg-zinc-200 px-5 py-3 dark:bg-zinc-800">
+            <FilterMenu />
+          </div>
+        </>
       ) : (
         <>
           <ul>
@@ -56,10 +58,7 @@ function TodoList({
                 selectedMenu === "completed" ? "completed" : "left"
               }`}</strong>
               <div className="hidden md:block">
-                <FilterMenu
-                  selectedMenu={selectedMenu}
-                  handleSelectedMenu={handleSelectedMenu}
-                />
+                <FilterMenu />
               </div>
               <button
                 type="button"
@@ -73,10 +72,7 @@ function TodoList({
         </>
       )}
       <div className="mt-4 rounded-md bg-zinc-200 px-5 py-3 dark:bg-zinc-800 md:hidden">
-        <FilterMenu
-          selectedMenu={selectedMenu}
-          handleSelectedMenu={handleSelectedMenu}
-        />
+        <FilterMenu />
       </div>
     </section>
   );

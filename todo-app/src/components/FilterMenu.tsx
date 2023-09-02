@@ -1,11 +1,10 @@
-import { selectedMenu } from "../models";
+import { useContext } from "react";
+import TodosContext from "../contexts/TodosContext";
 
-interface FilterMenuProps {
-  handleSelectedMenu: (menu: selectedMenu) => void;
-  selectedMenu: selectedMenu;
-}
+interface FilterMenuProps {}
 
-function FilterMenu({ handleSelectedMenu, selectedMenu }: FilterMenuProps) {
+function FilterMenu({}: FilterMenuProps) {
+  const {selectedMenu, handleSelectedMenu} = useContext(TodosContext);
   return (
     <nav>
       <ul className="flex justify-center gap-5 text-zinc-400">
