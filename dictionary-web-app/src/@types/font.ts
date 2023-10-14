@@ -1,0 +1,1 @@
+export type FontsType = "font-sans" | "font-serif" | "font-mono";
