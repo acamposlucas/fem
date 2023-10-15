@@ -1,5 +1,6 @@
 import { IWord } from "@/@types/word";
-import { Play } from "lucide-react";
+import { ExternalLink, Play } from "lucide-react";
+import { Separator } from "./ui/separator";
 
 interface WordProps {
   word: IWord | undefined;
@@ -12,30 +13,49 @@ function Word({ word }: WordProps) {
         <div className="flex justify-between">
           <div>
             <h1 className="text-3xl lowercase">{word.word}</h1>
-            <small className="text-primary text-xl">{word.phonetic}</small>
+            <small className="text-xl text-primary">{word.phonetic}</small>
           </div>
           <button
             type="button"
-            className="bg-primary grid h-12 w-12 place-items-center rounded-full bg-opacity-40 p-3"
+            className="grid h-12 w-12 place-items-center rounded-full bg-primary bg-opacity-40 p-3"
             aria-label="play"
           >
             <Play className="stroke-primary" width={22} height={22} />
           </button>
         </div>
-        <div className="my-8 flex items-center gap-4 after:block after:h-[1px] after:w-full after:bg-neutral-200">
-          <span className="font-bold lowercase">noun</span>
-        </div>
-        <div>
-          <h2 className="text-neutral-700">Meaning</h2>
-          <ul className="marker:bg-primary list-disc">
-            <li className="ms-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatem, sunt quas incidunt sit numquam aspernatur asperiores
-              beatae dignissimos placeat deleniti laudantium voluptatum, dolorem
-              tempora dolorum eligendi tenetur libero, id est.
-            </li>
-          </ul>
-        </div>
+        {word.meanings.map(({ partOfSpeech, definitions, synonyms }) => (
+          <>
+            <div className="my-8 flex items-center gap-4 after:block after:h-[1px] after:w-full after:bg-neutral-200">
+              <span className="font-bold lowercase">{partOfSpeech}</span>
+            </div>
+            <h2 className="mb-4 text-neutral-400">Meaning</h2>
+
+            <ul className="list-disc marker:text-primary">
+              {definitions.map(({ definition, example }) => (
+                <li className="mb-3 ms-4">
+                  {definition}
+                  {example && <p>{example}</p>}
+                </li>
+              ))}
+            </ul>
+            {synonyms.length > 0 && (
+              <p className="mt-6 text-neutral-400">
+                Synonyms:{" "}
+                <span className="font-bold text-primary">
+                  {synonyms.join(", ")}
+                </span>
+              </p>
+            )}
+          </>
+        ))}
+        <Separator orientation="horizontal" className="my-6" />
+        <strong className="block font-normal text-neutral-500 underline">
+          Source
+        </strong>
+        <a href={word.sourceUrls[0]}>
+          {word.sourceUrls}{" "}
+          <ExternalLink width={16} height={16} className="mb-1 inline-block" />
+        </a>
       </>
     )
   );

@@ -9,7 +9,7 @@ function App() {
   const [font, setFont] = useState<FontsType>("font-sans");
   const [word, setWord] = useState<IWord>();
   return (
-    <div className={`${font} mx-auto w-11/12 max-w-3xl`}>
+    <div className={`${font} mx-auto w-11/12 max-w-3xl pb-16`}>
       <Header font={font} setFont={setFont} />
       <main>
         <SearchForm word={word} setWord={setWord} />

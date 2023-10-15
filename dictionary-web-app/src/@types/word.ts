@@ -4,6 +4,8 @@ export interface IWord {
   phonetics: Phonetic[];
   origin: string;
   meanings: Meaning[];
+  license: License;
+  sourceUrls: string[];
 }
 
 interface Phonetic {
@@ -14,6 +16,7 @@ interface Phonetic {
 interface Meaning {
   partOfSpeech: string;
   definitions: Definition[];
+  synonyms: string[];
 }
 
 interface Definition {
@@ -21,4 +24,9 @@ interface Definition {
   example: string;
   synonyms: string[];
   antonyms: string[];
+}
+
+interface License {
+  name: string;
+  url: string;
 }
