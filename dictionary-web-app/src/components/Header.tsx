@@ -11,6 +11,7 @@ import {
 } from "./ui/select";
 import { Separator } from "./ui/separator";
 import { Switch } from "./ui/switch";
+import { useState } from "react";
 
 interface HeaderProps {
   font: FontsType;
@@ -18,8 +19,13 @@ interface HeaderProps {
 }
 
 function Header({ font, setFont }: HeaderProps) {
+  const [theme, setTheme] = useState<boolean>(false);
   const handleChangeFont = (font: string) => {
     setFont(font as FontsType);
+  };
+
+  const handleToggleTheme = (checked: boolean) => {
+    setTheme((prev) => checked);
   };
 
   return (
@@ -42,8 +48,10 @@ function Header({ font, setFont }: HeaderProps) {
             </Select>
             <Separator orientation="vertical" />
             <div className="flex items-center gap-2">
-              <Switch />
-              <SunIcon />
+              <Switch
+                onCheckedChange={(checked) => handleToggleTheme(checked)}
+              />
+              {theme ? <SunIcon /> : <MoonIcon />}
             </div>
             <div></div>
           </div>

@@ -15,7 +15,7 @@ const formSchema = z.object({
   query: z.string().min(2).max(50),
 });
 
-function SearchForm({ word, setWord }: SearchFormProps) {
+function SearchForm({ setWord }: SearchFormProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
