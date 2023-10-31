@@ -25,7 +25,7 @@ function Header({ font, setFont }: HeaderProps) {
   };
 
   const handleToggleTheme = (checked: boolean) => {
-    setTheme((prev) => checked);
+    setTheme(checked);
   };
 
   return (
