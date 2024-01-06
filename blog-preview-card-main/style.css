@@ -1,0 +1,118 @@
+@font-face {
+    font-family: "Figtree";
+    src: url('./assets/fonts/static/Figtree-ExtraBold.ttf');
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: "Figtree";
+    src: url('./assets/fonts/static/Figtree-SemiBold.ttf');
+    font-weight: 500;
+}
+
+:root {
+    --clr-primary: hsl(47, 88%, 63%);
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-grey: hsl(0, 0%, 50%);
+    --clr-black: hsl(0, 0%, 7%);
+
+    --sans: 'Figtree', cursive;
+
+    --fs-base: 16px;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+body {
+    font-family: var(--sans);
+    font-size: var(--fs-base);
+    background-color: var(--clr-primary);
+    color: var(--clr-black);
+}
+
+.container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 100dvh;
+    width: 90%;
+    margin-inline: auto;
+}
+
+.card {
+    padding: 1.5rem;
+    max-width: 24rem;
+    background-color: var(--clr-white);
+    border-radius: 20px;
+    box-shadow: 8px 8px 0px 0px #000;
+    width: 100%;
+}
+
+.card__img {
+    margin-block-end: 1.5rem;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card__img img {
+    width: 100%;
+}
+
+.card__content span {
+    display: inline-block;
+    background-color: var(--clr-primary);
+    padding-inline: 0.750rem;
+    padding-block: 0.25rem;
+    font-weight: 800;
+    margin-block-end: 0.750rem;
+}
+
+.card__content span~p {
+    margin-block-end: 0.750rem;
+    line-height: 1.5;
+}
+
+.card__content h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.5;
+    margin-block-end: 0.750rem;
+    cursor: pointer;
+}
+
+.card__content h1:hover {
+    color: var(--clr-primary);
+}
+
+.card__content h1~p {
+    color: var(--clr-grey);
+    font-weight: 500;
+    line-height: 1.5;
+    margin-block-end: 1.5rem;
+}
+
+.card__avatar {
+    display: flex;
+    align-items: center;
+}
+
+.card__avatar img {
+    aspect-ratio: 1;
+    border-radius: 9999px;
+    margin-inline-end: 0.750rem;
+    width: 32px;
+}
+
+.card__avatar strong {
+    font-weight: 800;
+    font-size: 0.875rem;
+}
