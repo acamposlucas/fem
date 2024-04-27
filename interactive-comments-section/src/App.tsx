@@ -1,11 +1,13 @@
+import { CommentsSection } from "./components/CommentsSection";
+
 function App() {
   return (
     <>
-      <div className="h-screen bg-zinc-300">
-        <h1 className="text-3xl">Hello World</h1>
-      </div>
+      <main className="mx-auto flex w-11/12 max-w-6xl items-center justify-center">
+        <CommentsSection />
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
