@@ -106,14 +106,33 @@ function Comment({ comment }: { comment: IComment }) {
   );
 }
 
+type ScoreUpdateActions = "increment" | "decrement";
+
 function Score({ score }: { score: number }) {
+  const [commentScore, setCommentScore] = useState(score);
+  const updateScore = (action: ScoreUpdateActions) => {
+    switch (action) {
+      case "increment":
+        setCommentScore((state) => state + 1);
+        break;
+      case "decrement":
+        setCommentScore((state) => state - 1);
+        break;
+    }
+  };
   return (
     <div className="flex w-fit items-center gap-2 rounded-[10px] bg-custom-gray-200 px-4 py-3 md:flex-col md:px-2">
-      <button className="text-custom-blue-200">
+      <button
+        onClick={() => updateScore("increment")}
+        className="text-custom-blue-200"
+      >
         <Plus />
       </button>
-      <span className="font-bold text-primary">{score}</span>
-      <button className="text-custom-blue-200">
+      <span className="font-bold text-primary">{commentScore}</span>
+      <button
+        onClick={() => updateScore("decrement")}
+        className="text-custom-blue-200"
+      >
         <Minus />
       </button>
     </div>
