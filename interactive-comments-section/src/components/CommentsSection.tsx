@@ -1,9 +1,15 @@
-import { Plus, Minus, Reply as ReplyIcon } from "lucide-react";
+import { Plus, Minus, Reply } from "lucide-react";
+import { CommentsService } from "../services/commentsService";
+import { useState } from "react";
 
 export function CommentsSection() {
+  const commentsService = new CommentsService();
+  const [comments, setComments] = useState(commentsService.comments);
   return (
     <section>
-      <Comment />
+      {comments.length > 0 ? (
+        comments.map((c) => <Comment />)
+      ) : "Write something for us!"}
       <div className="mt-4">
         <NewComment />
       </div>
@@ -31,7 +37,7 @@ function Comment() {
               <span>1 month ago</span>
             </div>
             <div className="hidden md:block">
-              <Reply />
+              <ReplyButton />
             </div>
           </div>
           <p>
@@ -44,7 +50,7 @@ function Comment() {
               <Score />
             </div>
             <div className="md:hidden">
-              <Reply />
+              <ReplyButton />
             </div>
           </div>
         </div>
@@ -71,7 +77,7 @@ function Comment() {
                       <span>1 month ago</span>
                     </div>
                     <div className="hidden md:block">
-                      <Reply />
+                      <ReplyButton />
                     </div>
                   </div>
                   <p>
@@ -86,7 +92,7 @@ function Comment() {
                       <Score />
                     </div>
                     <div className="md:hidden">
-                      <Reply />
+                      <ReplyButton />
                     </div>
                   </div>
                 </div>
@@ -113,10 +119,10 @@ function Score() {
   );
 }
 
-function Reply() {
+function ReplyButton() {
   return (
     <button className="text-primary flex items-center gap-2 font-bold">
-      <ReplyIcon />
+      <Reply />
       Reply
     </button>
   );
