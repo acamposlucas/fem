@@ -1,4 +1,4 @@
-import {Comment} from "./index"
-export type Reply = Omit<Comment, "replies"> & {
-    replyingTo: string;
-}
+import { IComment } from "./index";
+export type Reply = Omit<IComment, "replies"> & {
+  replyingTo: string;
+};
