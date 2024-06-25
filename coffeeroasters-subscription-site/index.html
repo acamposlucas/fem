@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <link href="./output.css" rel="stylesheet" />
+    <style>
+      html,
+      body {
+        font-size: 16px;
+      }
+    </style>
+    <script defer src="./index.js"></script>
+    <title>Frontend Mentor | Coffeeroasters subscription site</title>
+  </head>
+
+  <body class="bg-custom-lightCream font-sans">
+    <div class="mx-auto w-11/12 max-w-7xl">
+      <header class="relative flex items-center justify-between py-8">
+        <img src="./assets/shared/desktop/logo.svg" alt="Coffeeroasters" />
+        <div
+          id="main-navigation"
+          aria-hidden="true"
+          class="peer absolute left-0 top-full z-50 hidden h-screen w-full bg-gradient-to-b from-custom-lightCream from-35%"
+        >
+          <nav>
+            <ul
+              class="flex flex-col items-center justify-center gap-8 font-heading font-black"
+            >
+              <li><a href="">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="plan.html">Create Your Plan</a></li>
+            </ul>
+          </nav>
+        </div>
+        <button
+          class="h-4 w-4 bg-hamburger bg-no-repeat peer-aria-[hidden=false]:bg-close"
+          aria-controls="main-navigation"
+          id="toggle-navigation"
+        >
+          <span class="sr-only">Toggle menu</span>
+        </button>
+      </header>
+      <main class="flex flex-col gap-28">
+        <div
+          class="rounded-md bg-[url('assets/home/mobile/image-hero-coffeepress.jpg')] bg-cover bg-no-repeat px-6 py-24 md:bg-[url('assets/home/tablet/image-hero-coffeepress.jpg')] md:px-14 lg:px-20"
+        >
+          <div class="text-center md:w-3/5 md:text-left lg:w-1/2">
+            <strong
+              class="mb-6 block font-heading text-4xl font-normal text-white lg:text-5xl lg:font-black xl:text-7xl"
+              >Great coffee made simple.</strong
+            >
+            <p class="mb-10 text-[15px] text-custom-grey">
+              Start your mornings with the world’s best coffees. Try our
+              expertly curated artisan coffees from our best roasters delivered
+              directly to your door, at your schedule.
+            </p>
+          </div>
+          <a
+            href="plan.html"
+            class="mx-auto block w-fit rounded-md bg-custom-darkCyan px-8 py-4 font-heading font-bold text-white transition-colors hover:bg-custom-lightCyan md:mx-0 md:mr-auto"
+            >Create your plan</a
+          >
+        </div>
+        <section>
+          <h1
+            class="mb-4 bg-gradient-to-t from-white to-black bg-clip-text text-center font-heading text-2xl font-black lowercase text-transparent"
+          >
+            Our Collection
+          </h1>
+          <div
+            class="flex flex-col items-center justify-center gap-12 lg:flex-row"
+          >
+            <div
+              class="flex w-full max-w-72 flex-col items-center md:max-w-lg md:flex-row lg:flex-col"
+            >
+              <img
+                src="assets/home/desktop/image-gran-espresso.png"
+                alt="picture of a Gran Espresso coffee package"
+                class="h-36 w-52"
+              />
+              <div class="text-center md:text-left lg:text-center">
+                <h2
+                  class="mb-4 font-heading font-black text-custom-darkGrey md:text-2xl"
+                >
+                  Gran Espresso
+                </h2>
+                <p class="text-[15px] text-custom-darkGrey">
+                  Light and flavorful blend with cocoa and black pepper for an
+                  intense experience
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex w-full max-w-72 flex-col items-center md:max-w-lg md:flex-row lg:flex-col"
+            >
+              <img
+                src="assets/home/desktop/image-planalto.png"
+                alt="picture of a Planalto coffee package"
+                class="h-36 w-52"
+              />
+              <div class="text-center md:text-left lg:text-center">
+                <h2
+                  class="mb-4 font-heading font-black text-custom-darkGrey md:text-2xl"
+                >
+                  Planalto
+                </h2>
+                <p class="text-[15px] text-custom-darkGrey">
+                  Brazilian dark roast with rich and velvety body, and hints of
+                  fruits and nuts
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex w-full max-w-72 flex-col items-center md:max-w-lg md:flex-row lg:flex-col"
+            >
+              <img
+                src="assets/home/desktop/image-piccollo.png"
+                alt="picture of a Piccollo coffee package"
+                class="h-36 w-52"
+              />
+              <div class="text-center md:text-left lg:text-center">
+                <h2
+                  class="mb-4 font-heading font-black text-custom-darkGrey md:text-2xl"
+                >
+                  Piccollo
+                </h2>
+                <p class="text-[15px] text-custom-darkGrey">
+                  Mild and smooth blend featuring notes of toasted almond and
+                  dried cherry
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex w-full max-w-72 flex-col items-center md:max-w-lg md:flex-row lg:flex-col"
+            >
+              <img
+                src="assets/home/desktop/image-danche.png"
+                alt="picture of a Danche coffee package"
+                class="h-36 w-52"
+              />
+              <div class="text-center md:text-left lg:text-center">
+                <h2
+                  class="mb-4 font-heading font-black text-custom-darkGrey md:text-2xl"
+                >
+                  Danche
+                </h2>
+                <p class="text-[15px] text-custom-darkGrey">
+                  Ethiopian hand-harvested blend densely packed with vibrant
+                  fruit notes
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
