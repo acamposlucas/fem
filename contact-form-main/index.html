@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | Contact form</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <form>
+          <h1>Contact Us</h1>
+          <div class="form__container">
+            <div class="grid col-2">
+              <div class="form-control">
+                <div class="label__container">
+                  <label for="firstName">First Name</label><span>*</span>
+                </div>
+                <div class="control__container">
+                  <input type="text" id="firstName" />
+                </div>
+              </div>
+              <div class="form-control">
+                <div class="label__container">
+                  <label for="lastName">Last Name</label><span>*</span>
+                </div>
+                <div class="control__container">
+                  <input type="text" id="lastName" />
+                </div>
+              </div>
+            </div>
+            <div class="grid col-1">
+              <div class="form-control">
+                <div class="label__container">
+                  <label for="email">Email</label><span>*</span>
+                </div>
+                <div class="control__container">
+                  <input type="email" id="email" />
+                </div>
+              </div>
+            </div>
+            <div>
+              <span>Query Type</span><span class="green-600">*</span>
+              <div class="grid col-2">
+                <div class="form-control">
+                  <div class="control__container">
+                    <label for="generalEnquiry"
+                      ><input
+                        name="queryType"
+                        type="radio"
+                        value="generalEnquiry"
+                      />General Enquiry</label
+                    >
+                  </div>
+                </div>
+                <div class="form-control">
+                  <div class="control__container">
+                    <label for="supportRequest"
+                      ><input
+                        name="queryType"
+                        type="radio"
+                        value="supportRequest"
+                      />Support Request</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <label class="block" for="message"
+                >Message<span class="green-600">*</span></label
+              >
+              <div class="form-control">
+                <div class="control__container">
+                  <textarea></textarea>
+                </div>
+              </div>
+            </div>
+            <label for="consent">
+              <input type="checkbox" id="consent" />
+              I consent to being contacted by the team
+            </label>
+          </div>
+          <button class="btn bg-green-600 text-white">Submit</button>
+        </form>
+        <div class="attribution">
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge"
+            >Frontend Mentor</a
+          >. Coded by <a href="#">Your Name Here</a>.
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
